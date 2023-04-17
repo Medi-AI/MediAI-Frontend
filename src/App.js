@@ -11,21 +11,30 @@ const App = () => {
 	return (
 		<>
 			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/login' element={<Login />} />
 				<Route
-					path='/register'
+					path='https://mediai-frontend.onrender.com/'
+					element={<Home />}
+				/>
+				<Route
+					path='https://mediai-frontend.onrender.com/login'
+					element={<Login />}
+				/>
+				<Route
+					path='https://mediai-frontend.onrender.com/register'
 					element={<Register />}
 				/>
 				<Route
-					path='profile/patient/:username'
+					path='https://mediai-frontend.onrender.com/profile/patient/:username'
 					element={<Patient />}
 				/>
 				<Route
-					path='profile/doctor/:username'
+					path='https://mediai-frontend.onrender.com/profile/doctor/:username'
 					element={<Doctor />}
 				/>
-				<Route path='/predict' element={<Predict />} />
+				<Route
+					path='https://mediai-frontend.onrender.com/predict'
+					element={<Predict />}
+				/>
 			</Routes>
 		</>
 	);
