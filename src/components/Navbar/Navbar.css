@@ -5,10 +5,25 @@
 	height: 80px;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	padding: 0 50px;
 }
 .nav-container > img {
 	width: 150px;
+}
+
+.nav-container > ul {
+	margin-right: 40px;
+	width: 16%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.nav-container > ul > li > a {
+	font-size: 18px;
+	font-weight: 600;
+	color: white;
 }
 
 @media (max-width: 640px) {

@@ -6,6 +6,14 @@ const Navbar = () => {
 	return (
 		<div className='nav-container'>
 			<img src={Logo} alt='error' />
+			<ul>
+				<li>
+					<a href='/login'>Login</a>
+				</li>
+				<li>
+					<a href='/register'>Register</a>
+				</li>
+			</ul>
 		</div>
 	);
 };
