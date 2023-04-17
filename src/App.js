@@ -18,11 +18,11 @@ const App = () => {
 					element={<Register />}
 				/>
 				<Route
-					path='/patient/:username'
+					path='profile/patient/:username'
 					element={<Patient />}
 				/>
 				<Route
-					path='/doctor/:username'
+					path='profile/doctor/:username'
 					element={<Doctor />}
 				/>
 				<Route path='/predict' element={<Predict />} />
