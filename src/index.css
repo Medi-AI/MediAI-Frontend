@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.border {
+	border: 2px solid black;
+}
+
+.error-div {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-msg {
+	font-size: 15px;
+	color: red;
+}

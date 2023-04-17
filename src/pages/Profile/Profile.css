@@ -1,0 +1,64 @@
+.profile-main-container {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../../images/bg3.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.profile-container {
+	width: 80%;
+	height: 84%;
+	padding: 20px 40px;
+}
+
+.profile-container > .profile-heading {
+	color: white;
+	margin: 5px 0;
+}
+.profile-container > .profile-heading > h2 {
+	text-align: center;
+	font-size: 33px;
+}
+.profile-container > .profile-inputs {
+	display: grid;
+	grid-template-rows: repeat(6, 1fr);
+	grid-template-columns: repeat(2, 1fr);
+	column-gap: 20px;
+}
+.profile-container > .profile-inputs > input,
+select {
+	font-size: 15px;
+	padding: 0 15px;
+	width: 100%;
+	margin: 12px 0;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid grey;
+	background-color: transparent;
+	color: white;
+	outline: none;
+}
+.profile-container > .profile-inputs > .full-input {
+	grid-column: 1 / span 2;
+}
+
+.profile-container > .profile-submit {
+	display: flex;
+	justify-content: center;
+	margin: 5px 0;
+}
+.profile-container > .profile-submit > button {
+	margin: 10px 0 0 0;
+	font-size: 15px;
+	font-weight: 600;
+	width: 15%;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
+	background-color: #eb4d45;
+}

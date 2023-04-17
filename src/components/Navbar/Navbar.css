@@ -1,0 +1,22 @@
+.nav-container {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	padding: 0 50px;
+}
+.nav-container > img {
+	width: 150px;
+}
+
+@media (max-width: 640px) {
+	.nav-container > img {
+		width: 120px;
+	}
+	.nav-container {
+		padding: 0 20px;
+		height: 80px;
+	}
+}
