@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Rajdhani:wght@700&family=Rubik:wght@600&display=swap");
+
 * {
 	margin: 0;
 	padding: 0;
@@ -9,31 +10,38 @@
 	width: 23.022%;
 	height: 69%;
 }
-.register-container > form {
+
+.register-container>form {
 	margin: 10px 0 5px 0;
 }
 
-.register-container > h2 {
+.register-container>h2 {
 	font-family: "Rubik", sans-serif;
 	font-weight: 600;
 	color: white;
 	font-size: 38px;
 	margin: 10px 0;
 }
-.register-container > form .input-fields > input {
-	font-size: 15px;
-	padding: 0 15px;
+
+.register-container>form .input-fields>.input-field {
+	padding: 7px 15px;
 	width: 100%;
 	margin: 10px 0;
 	height: 40px;
 	border-radius: 5px;
 	border: 1px solid white;
+}
+
+.register-container>form .input-fields>.input-field>input {
 	background-color: transparent;
 	color: white;
 	outline: none;
+	font-size: 15px;
+	width: 100%;
 }
 
-.register-container > form .submit-btn > input {
+
+.register-container>form .submit-btn>input {
 	margin: 10px 0 0 0;
 	font-size: 15px;
 	font-weight: 600;
@@ -43,7 +51,8 @@
 	border: none;
 	background-color: #eb4d45;
 }
-.register-container > form .submit-btn > input :active {
+
+.register-container>form .submit-btn>input :active {
 	transform: scale(1.2);
 	transition: 0.5s;
 }
@@ -52,7 +61,8 @@
 	width: 70%;
 	margin: 10px auto;
 }
-.register-container .tosignin > h4 {
+
+.register-container .tosignin>h4 {
 	font-family: "Inter", sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -100,23 +110,29 @@ select {
 		height: 65%;
 		margin-top: 30px;
 	}
-	.register-container > form .input-fields > input {
+
+	.register-container>form .input-fields>input {
 		margin: 12px 0;
 	}
-	.register-container > form .submit-btn > input {
+
+	.register-container>form .submit-btn>input {
 		margin: 12px 0 0 0;
 	}
+
 	.heading-container {
 		width: 90%;
 		position: relative;
 		bottom: 10%;
 	}
-	.heading-container > h1 {
+
+	.heading-container>h1 {
 		font-size: 40px;
 	}
+
 	#icon1 {
 		display: none;
 	}
+
 	#icon2 {
 		display: none;
 	}
@@ -126,19 +142,17 @@ select {
 	cursor: pointer;
 	color: white;
 }
+
 #link:hover {
 	color: #e67f79;
 }
 
 .icons {
-	position: absolute;
-
+	position: relative;
 	color: rgb(138, 138, 138);
-	left: 455px;
+
 }
-#icon1 {
-	top: 316px;
-}
-#icon2 {
-	top: 376px;
+
+.icon-div {
+	display: flex;
 }
