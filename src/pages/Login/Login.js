@@ -6,6 +6,8 @@ import Navbar from "../../components/Navbar/Navbar";
 
 const Login = () => {
 	const [user, setUser] = useState({});
+	const [error, setError] = useState(null);
+
 	const navigate = useNavigate();
 
 	const handleChange = (e) => {
@@ -27,10 +29,15 @@ const Login = () => {
 			},
 			body: JSON.stringify(user),
 		});
-		const data = res.json();
-		if (data) {
+
+		const data = await res.json();
+		if (res.status === 200) {
 			navigate("/");
+			return;
 		}
+
+		setError(data.message);
+		console.log(data);
 	};
 	return (
 		<>
@@ -38,7 +45,14 @@ const Login = () => {
 				<Navbar />
 				<div className='body-container'>
 					<div className='login-container'>
-						<h2>Login to MediAI</h2>
+						<div className='heading'>
+							<h2>Login to MediAI</h2>
+							{error ? (
+								<p className='relative top-[5px] text-[red] text-center'>
+									{error}
+								</p>
+							) : null}
+						</div>
 						<form className='form-container'>
 							<input
 								name='email'

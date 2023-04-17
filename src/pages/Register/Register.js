@@ -36,7 +36,10 @@ const Register = () => {
 		});
 		console.log("data sent");
 		const data = await res.json();
-		console.log(data);
+		if (res.status === 200) {
+			navigate("/");
+		}
+		setErrorMsg(data.message);
 	};
 	return (
 		<>
@@ -45,6 +48,11 @@ const Register = () => {
 					<Navbar />
 					<div className='register-container'>
 						<h2>Signup to MediAI</h2>
+						{errorMsg ? (
+							<p className='relative top-[5px] text-[red] text-center'>
+								{errorMsg}
+							</p>
+						) : null}
 						<form>
 							<div className='input-fields'>
 								<input
@@ -132,7 +140,7 @@ const Register = () => {
 								)}
 								<div className='register-as-div'>
 									<select
-										name='pose'
+										name='RegisterAs'
 										onChange={
 											handleChange
 										}>

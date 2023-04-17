@@ -31,12 +31,15 @@
 	width: 22%;
 	height: 52%;
 }
-.login-container > h2 {
+.login-container .heading {
+	padding: 0;
+	margin-bottom: 0;
+}
+.login-container > .heading > h2 {
 	font-family: "Rubik", sans-serif;
 	font-weight: 600;
 	color: white;
 	font-size: 40px;
-	margin: 20px 0;
 }
 .login-container > form {
 	margin: 20px 0 5px 0;
@@ -45,7 +48,7 @@
 	font-size: 15px;
 	padding: 0 15px;
 	width: 100%;
-	margin: 12px 0;
+	margin: 0px 0px 12px;
 	height: 40px;
 	border-radius: 5px;
 	border: 1px solid white;
