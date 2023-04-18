@@ -42,7 +42,6 @@ const Login = () => {
 	return (
 		<>
 			<div className='main-container'>
-				<Navbar />
 				<div className='body-container'>
 					<div className='login-container'>
 						<div className='heading'>
@@ -84,20 +83,14 @@ const Login = () => {
 						<div className='tosignup'>
 							<h4>
 								Don't have an
-								account?
+								account? &nbsp;
 								<Link
 									to='/register'
 									id='link'>
-									Sign up
+									Signup
 								</Link>
 							</h4>
 						</div>
-					</div>
-					<div className='heading-container'>
-						<h1>
-							REVOLUTIONALISING <br />
-							HEALTHCARE
-						</h1>
 					</div>
 				</div>
 			</div>

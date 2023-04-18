@@ -40,7 +40,7 @@ select {
 	border-radius: 5px;
 	border: 1px solid grey;
 	background-color: transparent;
-	color: white;
+	color: #4d596b;
 	outline: none;
 }
 .profile-container > .profile-inputs > .full-input {

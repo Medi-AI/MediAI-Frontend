@@ -7,52 +7,54 @@
 }
 
 .register-container {
-	width: 23.022%;
-	height: 69%;
+	width: 30%;
+	height: 60%;
+	margin-left: 190px;
+	margin-top: 70px;
 }
 
-.register-container>form {
+.register-container > form {
 	margin: 10px 0 5px 0;
 }
 
-.register-container>h2 {
+.register-container > h2 {
 	font-family: "Rubik", sans-serif;
 	font-weight: 600;
-	color: white;
-	font-size: 38px;
+	color: #4d596b;
+	font-size: 50px;
 	margin: 10px 0;
 }
 
-.register-container>form .input-fields>.input-field {
+.register-container > form .input-fields > .input-field {
 	padding: 7px 15px;
 	width: 100%;
 	margin: 10px 0;
-	height: 40px;
+	height: 45px;
 	border-radius: 5px;
-	border: 1px solid white;
+	border: 1px solid black;
 }
 
-.register-container>form .input-fields>.input-field>input {
+.register-container > form .input-fields > .input-field > input {
 	background-color: transparent;
-	color: white;
+	color: #4d596b;
 	outline: none;
-	font-size: 15px;
+	font-size: 17px;
 	width: 100%;
 }
 
-
-.register-container>form .submit-btn>input {
+.register-container > form .submit-btn > input {
 	margin: 10px 0 0 0;
-	font-size: 15px;
+	font-size: 18px;
 	font-weight: 600;
 	width: 100%;
-	height: 37px;
+	height: 42px;
 	border-radius: 5px;
+	color: white;
 	border: none;
-	background-color: #eb4d45;
+	background-color: #769fcd;
 }
 
-.register-container>form .submit-btn>input :active {
+.register-container > form .submit-btn > input :active {
 	transform: scale(1.2);
 	transition: 0.5s;
 }
@@ -62,11 +64,12 @@
 	margin: 10px auto;
 }
 
-.register-container .tosignin>h4 {
+.register-container .tosignin > h4 {
 	font-family: "Inter", sans-serif;
 	font-weight: 400;
-	font-size: 14px;
-	color: white;
+	font-size: 15px;
+	color: #4d596b;
+	margin: 0 0 0 20px;
 }
 
 .register-as-div {
@@ -111,11 +114,11 @@ select {
 		margin-top: 30px;
 	}
 
-	.register-container>form .input-fields>input {
+	.register-container > form .input-fields > input {
 		margin: 12px 0;
 	}
 
-	.register-container>form .submit-btn>input {
+	.register-container > form .submit-btn > input {
 		margin: 12px 0 0 0;
 	}
 
@@ -125,7 +128,7 @@ select {
 		bottom: 10%;
 	}
 
-	.heading-container>h1 {
+	.heading-container > h1 {
 		font-size: 40px;
 	}
 
@@ -140,19 +143,23 @@ select {
 
 #link {
 	cursor: pointer;
-	color: white;
+	color: black;
 }
 
 #link:hover {
-	color: #e67f79;
+	color: #769fcd;
 }
 
 .icons {
 	position: relative;
 	color: rgb(138, 138, 138);
-
 }
 
 .icon-div {
 	display: flex;
+}
+
+.register-container > form .submit-btn > input:hover {
+	transform: scale(1.03);
+	transition: 0.2s;
 }

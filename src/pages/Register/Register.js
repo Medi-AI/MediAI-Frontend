@@ -46,7 +46,6 @@ const Register = () => {
 		<>
 			<div className='main-container'>
 				<div className='body-container'>
-					<Navbar />
 					<div className='register-container'>
 						<h2>Signup to MediAI</h2>
 						{errorMsg ? (
@@ -177,14 +176,14 @@ const Register = () => {
 										submit
 									}
 									type='button'
-									value='Register'
+									value='Signup'
 								/>
 							</div>
 						</form>
 						<div className='tosignin'>
 							<h4>
 								Already have an
-								account?
+								account? &nbsp;
 								<Link
 									to='/login'
 									id='link'>
@@ -192,12 +191,6 @@ const Register = () => {
 								</Link>
 							</h4>
 						</div>
-					</div>
-					<div className='heading-container'>
-						<h1>
-							REVOLUTIONALISING <br />
-							HEALTHCARE
-						</h1>
 					</div>
 				</div>
 			</div>
