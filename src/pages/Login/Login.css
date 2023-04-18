@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Rajdhani:wght@700&family=Rubik:wght@600&display=swap");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	color: rgb(64, 90, 95);
 }
+
 ::placeholder {
 	color: white;
 }
@@ -43,19 +45,23 @@
 
 	/* opacity: 40%; */
 }
+
 .login-container .heading {
 	padding: 0;
 	margin-bottom: 0;
 }
-.login-container > .heading > h2 {
+
+.login-container>.heading>h2 {
 	font-weight: 600;
 	color: rgb(64, 90, 95);
 	font-size: 52px;
 }
-.login-container > form {
+
+.login-container>form {
 	margin: 20px 0 5px 0;
 }
-.login-container > form > input {
+
+.login-container>form>input {
 	font-size: 17px;
 	padding: 0 15px;
 	width: 100%;
@@ -67,17 +73,14 @@
 	color: rgb(64, 90, 95);
 	outline: none;
 }
-.login-container > form > p {
+
+.login-container>form>p {
 	font-size: 15px;
-
-	margin: 10px 0 10px 56%;
-	position: relative;
-	top: -5px;
-	left: 15px;
-
+	margin: 10px 10px 20px 65%;
 	font-weight: 400;
 }
-.login-container > form .login-btn > input {
+
+.login-container>form .login-btn>input {
 	font-size: 17px;
 	font-weight: 600;
 	width: 100%;
@@ -87,18 +90,20 @@
 	color: white;
 	background-color: #769fcd;
 }
+
 .login-container .tosignup {
 	font-size: 16px;
 
 	width: 71%;
 	margin: 15px auto;
 }
-.login-container .tosignup > h4 {
+
+.login-container .tosignup>h4 {
 	font-weight: 400;
 	font-size: 16px;
 }
 
-.heading-container > h1 {
+.heading-container>h1 {
 	font-size: 59px;
 	position: relative;
 	top: 15px;
@@ -124,16 +129,18 @@
 		margin: 30px 0;
 		padding: 10px;
 	}
-	.login-container > .heading > h2 {
+
+	.login-container>.heading>h2 {
 		margin: 10px 0;
 		font-size: 42px;
 	}
+
 	.login-container .tosignup {
 		width: 75%;
 	}
 }
 
-.login-container > form .login-btn > input:hover {
+.login-container>form .login-btn>input:hover {
 	transform: scale(1.03);
 	transition: 0.2s;
 }
