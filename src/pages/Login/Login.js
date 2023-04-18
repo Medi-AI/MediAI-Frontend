@@ -42,7 +42,7 @@ const Login = () => {
   };
   return (
     <>
-      <Navbar2 currentPage="Profile" />
+      <Navbar currentPage="Profile" />
       <div className="main-container">
         <div className="body-container">
           <div className="login-container">
