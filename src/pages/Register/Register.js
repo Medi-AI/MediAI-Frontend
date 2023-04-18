@@ -45,7 +45,7 @@ const Register = () => {
   };
   return (
     <>
-      <Navbar currentPage="Home" />
+      <Navbar currentPage="Profile" />
       <div className="main-container">
         <div className="body-container">
           <div className="register-container">

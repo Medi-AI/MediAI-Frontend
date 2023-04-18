@@ -13,18 +13,18 @@
 	margin-top: 70px;
 }
 
-.register-container > form {
+.register-container>form {
 	margin: 10px 0 5px 0;
 }
 
-.register-container > h2 {
+.register-container>h2 {
 	font-weight: 600;
 	color: rgb(64, 90, 95);
 	font-size: 50px;
 	margin: 10px 0;
 }
 
-.register-container > form .input-fields > .input-field {
+.register-container>form .input-fields>.input-field {
 	padding: 7px 15px;
 	width: 100%;
 	margin: 10px 0;
@@ -33,7 +33,7 @@
 	border: 1px solid black;
 }
 
-.register-container > form .input-fields > .input-field > input {
+.register-container>form .input-fields>.input-field>input {
 	background-color: transparent;
 	color: rgb(64, 90, 95);
 	outline: none;
@@ -41,7 +41,7 @@
 	width: 100%;
 }
 
-.register-container > form .submit-btn > input {
+.register-container>form .submit-btn>input {
 	margin: 10px 0 0 0;
 	font-size: 18px;
 	font-weight: 600;
@@ -53,7 +53,7 @@
 	background-color: #769fcd;
 }
 
-.register-container > form .submit-btn > input :active {
+.register-container>form .submit-btn>input :active {
 	transform: scale(1.2);
 	transition: 0.5s;
 }
@@ -63,7 +63,7 @@
 	margin: 10px auto;
 }
 
-.register-container .tosignin > h4 {
+.register-container .tosignin>h4 {
 	font-weight: 400;
 	font-size: 15px;
 	color: rgb(64, 90, 95);
@@ -112,11 +112,11 @@ select {
 		margin-top: 30px;
 	}
 
-	.register-container > form .input-fields > input {
+	.register-container>form .input-fields>input {
 		margin: 12px 0;
 	}
 
-	.register-container > form .submit-btn > input {
+	.register-container>form .submit-btn>input {
 		margin: 12px 0 0 0;
 	}
 
@@ -126,7 +126,7 @@ select {
 		bottom: 10%;
 	}
 
-	.heading-container > h1 {
+	.heading-container>h1 {
 		font-size: 40px;
 	}
 
@@ -149,7 +149,6 @@ select {
 }
 
 .icons {
-	position: relative;
 	color: rgb(138, 138, 138);
 }
 
@@ -157,7 +156,7 @@ select {
 	display: flex;
 }
 
-.register-container > form .submit-btn > input:hover {
+.register-container>form .submit-btn>input:hover {
 	transform: scale(1.03);
 	transition: 0.2s;
 }
