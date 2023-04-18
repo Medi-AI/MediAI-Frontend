@@ -18,9 +18,8 @@
 }
 
 .register-container > h2 {
-	font-family: "Rubik", sans-serif;
 	font-weight: 600;
-	color: #4d596b;
+	color: rgb(64, 90, 95);
 	font-size: 50px;
 	margin: 10px 0;
 }
@@ -36,7 +35,7 @@
 
 .register-container > form .input-fields > .input-field > input {
 	background-color: transparent;
-	color: #4d596b;
+	color: rgb(64, 90, 95);
 	outline: none;
 	font-size: 17px;
 	width: 100%;
@@ -65,10 +64,9 @@
 }
 
 .register-container .tosignin > h4 {
-	font-family: "Inter", sans-serif;
 	font-weight: 400;
 	font-size: 15px;
-	color: #4d596b;
+	color: rgb(64, 90, 95);
 	margin: 0 0 0 20px;
 }
 
