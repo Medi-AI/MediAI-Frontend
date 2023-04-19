@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import Navbar from "../../components/Navbar";
+import "./Predict.css";
 
 const Predict = () => {
 	const [array, setArray] = useState("");
@@ -20,13 +22,20 @@ const Predict = () => {
 	};
 
 	return (
-		<div>
-			<input
-				type='text'
-				onChange={(e) => setArray(e.target.value)}
-				placeholder='Enter Array'></input>
-			<button onClick={submit}>Submit</button>
-		</div>
+		<>
+			<Navbar currentPage='Profile' />
+			<div className='profile-div'>
+				<div className='predict-div'>
+					<div className='input-selected'>
+						<input
+							type='text'
+							placeholder='Search Symptom'
+						/>
+					</div>
+					<div className='selected-symptoms'></div>
+				</div>
+			</div>
+		</>
 	);
 };
 

@@ -1,20 +1,25 @@
 import React, {useState} from "react";
-import {useParams, useLocation} from "react-router-dom";
+
+import {useParams, useLocation, useNavigate} from "react-router-dom";
 import "./Profile.css";
 
 const Profile = () => {
 	let {username} = useParams();
+	const navigate = useNavigate();
 
 	const [profile, setProfile] = useState({
-		username: "",
-		age: "",
+		username: username,
+		dob: "",
 		gender: "",
 		bloodgrp: "",
+		phoneno: "",
+		emergencyContact: "",
 		address: "",
 		medicalhistory: "",
 		allergies: "",
-		emergencyContact: "",
 	});
+
+	const [errorMsg, setErrorMsg] = useState(null);
 
 	const handleChange = (e) => {
 		const {name, value} = e.target;
@@ -28,7 +33,8 @@ const Profile = () => {
 
 	const handleSubmit = async () => {
 		console.log(profile);
-		const res = await fetch("/profile/doctor", {
+
+		const res = await fetch("http://localhost:8080/profile", {
 			method: "POST",
 			headers: {
 				"Content-Type": "Application/json",
@@ -36,27 +42,33 @@ const Profile = () => {
 			body: JSON.stringify(profile),
 		});
 
-		console.log(res);
+		const data = await res.json();
+
+		if (res.status === 200) {
+			alert("Profile added!");
+		}
+		setErrorMsg(data.message);
 	};
 
 	return (
 		<div className='profile-main-container'>
 			<div className='profile-container'>
 				<div className='profile-heading'>
-					<h2>Hey welcome, {username}</h2>
+					<h2>Your Profile</h2>
+					<p>{errorMsg}</p>
 				</div>
 				<div className='profile-inputs'>
 					<input
-						onChange={handleChange}
+						value={username}
 						name='username'
 						type='text'
 						placeholder='Username'
 					/>
 					<input
 						onChange={handleChange}
-						name='age'
-						type='number'
-						placeholder='AGE'
+						name='dob'
+						type='date'
+						placeholder='DOB'
 					/>
 					<select
 						name='gender'
@@ -71,6 +83,7 @@ const Profile = () => {
 					<select
 						name='bloodgrp'
 						onChange={handleChange}>
+						<option>Blood Group</option>
 						<option>A+</option>
 						<option>B+</option>
 						<option>AB+</option>
@@ -80,6 +93,18 @@ const Profile = () => {
 						<option>AB-</option>
 						<option>O-</option>
 					</select>
+					<input
+						onChange={handleChange}
+						name='phoneno'
+						type='number'
+						placeholder='Phone No.'
+					/>
+					<input
+						onChange={handleChange}
+						name='emergencyContact'
+						type='number'
+						placeholder='Emergency Contact No.'
+					/>
 					<input
 						onChange={handleChange}
 						name='address'
@@ -100,13 +125,6 @@ const Profile = () => {
 						className='full-input'
 						type='text'
 						placeholder='Allergies if any'
-					/>
-					<input
-						onChange={handleChange}
-						name='emergencyContact'
-						className='full-input'
-						type='text'
-						placeholder='Emergency Contact'
 					/>
 				</div>
 				<div className='profile-submit'>

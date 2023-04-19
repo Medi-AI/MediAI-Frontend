@@ -1,0 +1,28 @@
+.profile-div {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.predict-div {
+	margin-left: 100px;
+	width: 60%;
+	height: 70%;
+	border: 2px solid black;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+.predict-div .input-selected {
+	width: 80%;
+	height: 50%;
+	border: 1px solid black;
+}
+.predict-div .selected-symptoms {
+	width: 80%;
+	border: 1px solid black;
+	height: 45%;
+}
