@@ -28,9 +28,48 @@ const Predict = () => {
 				<div className='predict-div'>
 					<div className='input-selected'>
 						<input
+							value={query}
+							onChange={(e) =>
+								setQuery(
+									e.target
+										.value,
+								)
+							}
 							type='text'
-							placeholder='Search Symptom'
+							placeholder='Search Symptoms'
 						/>
+						<div className='symptoms-container'>
+							{Symptoms.filter(
+								(symptom) =>
+									symptom.name
+										.toLowerCase()
+										.includes(
+											query.toLowerCase(),
+										),
+							)
+								.slice(0, 12)
+								.map(
+									(
+										symptom,
+									) => {
+										return (
+											<li
+												onClick={() =>
+													handleOnClick(
+														symptom,
+													)
+												}
+												className='symptom'>
+												<p>
+													{
+														symptom.name
+													}
+												</p>
+											</li>
+										);
+									},
+								)}
+						</div>
 					</div>
 					<div className='selected-symptoms'></div>
 				</div>

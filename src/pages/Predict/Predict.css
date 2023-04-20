@@ -4,6 +4,10 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background-image: url("../../images/predictbg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .predict-div {
@@ -18,8 +22,15 @@
 }
 .predict-div .input-selected {
 	width: 80%;
-	height: 50%;
+	height: 45%;
 	border: 1px solid black;
+}
+
+.predict-div .input-selected > input {
+	width: 100%;
+	height: 40px;
+	border: 1px solid black;
+	border-radius: 4px;
 }
 .predict-div .selected-symptoms {
 	width: 80%;
