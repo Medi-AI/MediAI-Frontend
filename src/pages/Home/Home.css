@@ -15,23 +15,60 @@
 	height: 62%;
 }
 
-.heading-div > h1 {
-	font-size: 50px;
-	font-weight: 600;
+.heading-div>h1 {
+	font-size: 55px;
+	font-weight: 500;
 	margin: 0px 0 15px 0;
+	margin-top: 100px;
+	letter-spacing: 0.2px;
 }
-.heading-div > p {
+
+.heading-div>p {
 	font-size: 25px;
+	width: 400px;
+	margin-bottom: 40px;
+	letter-spacing: 0.4px;
 }
-.heading-div > .btn-div {
+
+.heading-div>.btn-div {
 	width: 70%;
 	margin: 20px 0 0 0;
 	display: flex;
 	justify-content: space-between;
 }
-.heading-div > .btn-div > button {
+
+.heading-div>.btn-div>button {
 	padding: 10px 25px;
 	background-color: #769fcd;
 	color: white;
 	border-radius: 5px;
+}
+
+.heading-div>.btn-div>button>a {
+	letter-spacing: 0.4px;
+}
+
+.heading-div>.btn-div>button:hover {
+	transform: scale(1.05);
+	transition: 0.5s;
+}
+
+.heading-div>.btn-div>.predict-button {
+	font-size: 17px;
+	font-weight: 600;
+	width: 40%;
+	border-radius: 5px;
+	border: none;
+	color: white;
+	background-color: #769fcd;
+}
+
+.heading-div>.btn-div>.login-button {
+	font-size: 17px;
+	font-weight: 600;
+	width: 40%;
+	border-radius: 5px;
+	border: solid 2px #769fcd;
+	color: #769fcd;
+	background-color: transparent;
 }
