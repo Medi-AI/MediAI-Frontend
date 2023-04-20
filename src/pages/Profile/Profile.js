@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./Profile.css";
+import Navbar from "../../components/Navbar";
 
 const Profile = () => {
-  let { username } = useParams();
   const navigate = useNavigate();
 
+  const authToken = localStorage.getItem("mediai-auth-token");
+  const mediai_name = localStorage.getItem("mediai-name");
+
+  if (!authToken) {
+    navigate("/login");
+  }
+
   const [profile, setProfile] = useState({
-    username: username,
+    name: mediai_name,
     dob: "",
     gender: "",
     bloodgrp: "",
@@ -37,6 +44,7 @@ const Profile = () => {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
+        "mediai-auth-token": authToken,
       },
       body: JSON.stringify(profile),
     });
@@ -45,12 +53,14 @@ const Profile = () => {
 
     if (res.status === 200) {
       alert("Profile added!");
+      navigate("/");
     }
     setErrorMsg(data.message);
   };
 
   return (
     <div className="profile-main-container">
+      <Navbar currentPage="Profile" />
       <div className="profile-container">
         <div className="profile-heading">
           <h2>Your Profile</h2>
@@ -58,10 +68,10 @@ const Profile = () => {
         </div>
         <div className="profile-inputs">
           <input
-            value={username}
-            name="username"
+            value={mediai_name}
+            name="name"
             type="text"
-            placeholder="Username"
+            placeholder="Name"
           />
           <input
             onChange={handleChange}
@@ -73,8 +83,6 @@ const Profile = () => {
             <option>Gender</option>
             <option>Male</option>
             <option>Female</option>
-            <option>Gay</option>
-            <option>Lesbian</option>
             <option>Other</option>
           </select>
           <select name="bloodgrp" onChange={handleChange}>

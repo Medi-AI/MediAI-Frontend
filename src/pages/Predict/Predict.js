@@ -9,21 +9,7 @@ const Predict = () => {
   const [initialSymptoms, setInitialSymptoms] = useState(Symptoms);
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
 
-  const submit = async () => {
-    // console.log(array);s
-    // const res = await fetch("/predict", {
-    // 	method: "POST",
-    // 	headers: {
-    // 		"Content-Type": "Application/json",
-    // 	},
-    // 	body: JSON.stringify(),
-    // });
-    // console.log("data sent");
-    // const data = await res.json();
-    // if (data) {
-    // 	console.log(data);
-    // }
-  };
+  const submit = async () => {};
 
   const removeSymptom = (symptom) => {
     setInitialSymptoms((prevstate) => {
@@ -43,17 +29,32 @@ const Predict = () => {
   };
 
   const handleOnClick = (symptom) => {
+    setQuery("");
     removeSymptom(symptom);
 
     selectedSymptoms.push(symptom);
   };
 
-  const submitPredict = () => {
+  const submitPredict = async () => {
     let symptomsArray = [];
     selectedSymptoms.map((ele) => {
       return symptomsArray.push(ele.name);
     });
     console.log(symptomsArray);
+
+    const res = await fetch("https://mediai.pythonanywhere.com/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify({
+        symptoms: symptomsArray,
+      }),
+    });
+    console.log("data sent");
+    const data = await res.json();
+    console.log(data);
+    console.log(data["filtered_output"]);
   };
 
   return (

@@ -21,7 +21,7 @@ const Login = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    const res = await fetch("/login", {
+    const res = await fetch("http://localhost:8080/login", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -29,8 +29,13 @@ const Login = () => {
       body: JSON.stringify(user),
     });
 
+    const authToken = res.headers.get("mediai-auth-token");
     const data = await res.json();
-    if (res.status === 200) {
+
+    if (res.status === 200 && authToken) {
+      localStorage.setItem("mediai-auth-token", authToken);
+      localStorage.setItem("mediai-username", data.username);
+      localStorage.setItem("mediai-name", data.name);
       navigate("/");
       return;
     }

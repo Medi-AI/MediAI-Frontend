@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import "./Register.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Await, Link, useNavigate } from "react-router-dom";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -33,7 +33,6 @@ const Register = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    console.log(user.username);
     const res = await fetch("http://localhost:8080/register", {
       method: "POST",
       headers: {
@@ -41,12 +40,23 @@ const Register = () => {
       },
       body: JSON.stringify(user),
     });
-    console.log("data sent");
+
+    console.log(res);
+
+    const authToken = res.headers.get("mediai-auth-token");
     const data = await res.json();
-    if (res.status === 200) {
+
+    console.log(authToken);
+    console.log(data);
+
+    if (res.status === 200 && authToken) {
+      localStorage.setItem("mediai-auth-token", authToken);
+      localStorage.setItem("mediai-username", data.username);
+      localStorage.setItem("mediai-name", data.name);
       alert("Registration Successful");
-      navigate(`/profile`);
+      navigate("/profile");
     }
+
     setErrorMsg(data.message);
   };
   return (
@@ -138,13 +148,13 @@ const Register = () => {
                     className="select-items"
                     value="Register As"
                   >
-                    Register As:
-                  </option>
-                  <option className="select-items" value="Doctor">
-                    Doctor
+                    Register As
                   </option>
                   <option className="select-items" value="Patient">
                     Patient
+                  </option>
+                  <option className="select-items" value="Doctor">
+                    Doctor
                   </option>
                 </select>
               </div>

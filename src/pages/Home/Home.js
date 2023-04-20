@@ -4,6 +4,7 @@ import "./Home.css";
 import Navbar from "../../components/Navbar/Navbar";
 
 const Home = () => {
+  const userName = localStorage.getItem("mediai-name");
   return (
     <>
       <div className="main-home">
@@ -15,12 +16,18 @@ const Home = () => {
             recommendations, and smarter medical records management.
           </p>
           <div className="btn-div">
-            <button className="predict-button">
-              <a href="predict">Predict</a>
-            </button>
-            <button className="login-button">
-              <a href="login">Login</a>
-            </button>
+            <a href="predict" className="predict-button">
+              <button>Predict</button>
+            </a>
+            {userName ? (
+              <a href="upload" className="sec-button">
+                <button>Upload</button>
+              </a>
+            ) : (
+              <a href="login" className="sec-button">
+                <button>Login</button>
+              </a>
+            )}
           </div>
         </div>
       </div>

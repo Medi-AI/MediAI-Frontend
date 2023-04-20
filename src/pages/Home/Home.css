@@ -37,18 +37,20 @@
 	justify-content: space-between;
 }
 
-.heading-div>.btn-div>button {
+.heading-div>.btn-div>a {
 	padding: 10px 25px;
 	background-color: #769fcd;
 	color: white;
 	border-radius: 5px;
+	text-decoration: none;
 }
 
-.heading-div>.btn-div>button>a {
-	letter-spacing: 0.4px;
+.heading-div>.btn-div>a>button {
+	text-align: center;
+	width: 100%;
 }
 
-.heading-div>.btn-div>button:hover {
+.heading-div>.btn-div>a:hover {
 	transform: scale(1.05);
 	transition: 0.5s;
 }
@@ -63,7 +65,7 @@
 	background-color: #769fcd;
 }
 
-.heading-div>.btn-div>.login-button {
+.heading-div>.btn-div>.sec-button {
 	font-size: 17px;
 	font-weight: 600;
 	width: 40%;
