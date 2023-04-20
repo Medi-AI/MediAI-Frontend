@@ -6,7 +6,7 @@
 	left: 0;
 	width: 100%;
 	background: #F7FBFC;
-	z-index: 100;
+	z-index: 1000;
 }
 
 .logo-container {
@@ -103,6 +103,7 @@
 	opacity: 0.9;
 	visibility: visible;
 	height: 100%;
+	z-index: 500;
 }
 
 .overlay.open li {
