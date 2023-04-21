@@ -4,7 +4,7 @@ import "./Home.css";
 import Navbar from "../../components/Navbar/Navbar";
 
 const Home = () => {
-  const userName = localStorage.getItem("mediai-name");
+  const user = localStorage.getItem("mediai-user-data");
   return (
     <>
       <div className="main-home">
@@ -19,7 +19,7 @@ const Home = () => {
             <a href="predict" className="predict-button">
               <button>Predict</button>
             </a>
-            {userName ? (
+            {user ? (
               <a href="upload" className="sec-button">
                 <button>Upload</button>
               </a>

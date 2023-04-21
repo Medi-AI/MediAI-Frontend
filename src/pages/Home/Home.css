@@ -35,6 +35,7 @@
 	margin: 20px 0 0 0;
 	display: flex;
 	justify-content: space-between;
+	flex-direction: row;
 }
 
 .heading-div>.btn-div>a {

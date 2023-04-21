@@ -34,14 +34,13 @@ const Login = () => {
 
     if (res.status === 200 && authToken) {
       localStorage.setItem("mediai-auth-token", authToken);
-      localStorage.setItem("mediai-username", data.username);
-      localStorage.setItem("mediai-name", data.name);
+      localStorage.setItem("mediai-user-data", JSON.stringify(data.user));
+      localStorage.setItem("mediai-profile-data", JSON.stringify(data.profile));
       navigate("/");
       return;
     }
 
     setError(data.message);
-    console.log(data);
   };
   return (
     <>

@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./Profile.css";
 import Navbar from "../../components/Navbar";
 
 const Profile = () => {
   const navigate = useNavigate();
-
-  const authToken = localStorage.getItem("mediai-auth-token");
-  const mediai_name = localStorage.getItem("mediai-name");
-
-  if (!authToken) {
-    navigate("/login");
-  }
-
+  const [isNewUser, setIsNewUser] = useState(true);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
   const [profile, setProfile] = useState({
-    name: mediai_name,
+    user_id: "",
+    name: "",
     dob: "",
     gender: "",
     bloodgrp: "",
@@ -25,26 +22,74 @@ const Profile = () => {
     allergies: "",
   });
 
-  const [errorMsg, setErrorMsg] = useState(null);
+  useEffect(() => {
+    let storedUserData = localStorage.getItem("mediai-user-data");
+    if (!storedUserData) {
+      alert("Please signup to continue");
+      navigate("/register");
+      return;
+    }
+    storedUserData = JSON.parse(storedUserData);
+    setUserData(storedUserData);
+
+    const authToken = localStorage.getItem("mediai-auth-token");
+    if (!authToken) {
+      alert("Please login to continue");
+      navigate("/login");
+      return;
+    }
+
+    const storedUserProfile = JSON.parse(
+      localStorage.getItem("mediai-profile-data")
+    );
+
+    if (storedUserProfile) {
+      setIsNewUser(false);
+      setUserProfile(storedUserProfile);
+      setProfile({
+        user_id: storedUserData._id,
+        name: storedUserProfile.name,
+        dob: storedUserProfile.dob,
+        gender: storedUserProfile.gender,
+        bloodgrp: storedUserProfile.bloodgrp,
+        phoneno: storedUserProfile.phoneno,
+        emergencyContact: storedUserProfile.emergencyContact,
+        address: storedUserProfile.address,
+        medicalhistory: storedUserProfile.medicalhistory,
+        allergies: storedUserProfile.allergies,
+      });
+    } else {
+      setProfile({
+        user_id: storedUserData._id,
+        name: storedUserData.name,
+        dob: "",
+        gender: "",
+        bloodgrp: "",
+        phoneno: "",
+        emergencyContact: "",
+        address: "",
+        medicalhistory: "",
+        allergies: "",
+      });
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setProfile(() => {
+    setProfile((prevProfile) => {
       return {
-        ...profile,
+        ...prevProfile,
         [name]: value,
       };
     });
   };
 
   const handleSubmit = async () => {
-    console.log(profile);
-
     const res = await fetch("http://localhost:8080/profile", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
-        "mediai-auth-token": authToken,
+        "mediai-auth-token": localStorage.getItem("mediai-auth-token"),
       },
       body: JSON.stringify(profile),
     });
@@ -52,11 +97,17 @@ const Profile = () => {
     const data = await res.json();
 
     if (res.status === 200) {
+      localStorage.setItem("mediai-profile-data", JSON.stringify(data.profile));
       alert("Profile added!");
       navigate("/");
     }
+
     setErrorMsg(data.message);
   };
+
+  if (!userData || (isNewUser && !userProfile)) {
+    return null; // or render a loading indicator
+  }
 
   return (
     <div className="profile-main-container">
@@ -68,24 +119,33 @@ const Profile = () => {
         </div>
         <div className="profile-inputs">
           <input
-            value={mediai_name}
+            value={userData.name}
             name="name"
             type="text"
             placeholder="Name"
           />
           <input
+            {...(isNewUser ? {} : { value: userProfile.dob })}
             onChange={handleChange}
             name="dob"
             type="date"
             placeholder="DOB"
           />
-          <select name="gender" onChange={handleChange}>
+          <select
+            {...(isNewUser ? {} : { value: userProfile.gender })}
+            name="gender"
+            onChange={handleChange}
+          >
             <option>Gender</option>
             <option>Male</option>
             <option>Female</option>
             <option>Other</option>
           </select>
-          <select name="bloodgrp" onChange={handleChange}>
+          <select
+            {...(isNewUser ? {} : { value: userProfile.bloodgrp })}
+            name="bloodgrp"
+            onChange={handleChange}
+          >
             <option>Blood Group</option>
             <option>A+</option>
             <option>B+</option>
@@ -101,12 +161,14 @@ const Profile = () => {
             name="phoneno"
             type="number"
             placeholder="Phone No."
+            {...(isNewUser ? {} : { value: userProfile.phoneno })}
           />
           <input
             onChange={handleChange}
             name="emergencyContact"
             type="number"
             placeholder="Emergency Contact No."
+            {...(isNewUser ? {} : { value: userProfile.emergencyContact })}
           />
           <input
             onChange={handleChange}
@@ -114,6 +176,7 @@ const Profile = () => {
             className="full-input"
             type="text"
             placeholder="Address"
+            {...(isNewUser ? {} : { value: userProfile.address })}
           />
           <input
             onChange={handleChange}
@@ -121,6 +184,7 @@ const Profile = () => {
             className="full-input"
             type="text"
             placeholder="Medical History"
+            {...(isNewUser ? {} : { value: userProfile.medicalhistory })}
           />
           <input
             onChange={handleChange}
@@ -128,10 +192,15 @@ const Profile = () => {
             className="full-input"
             type="text"
             placeholder="Allergies if any"
+            {...(isNewUser ? {} : { value: userProfile.allergies })}
           />
         </div>
         <div className="profile-submit">
-          <button onClick={handleSubmit}>Submit</button>
+          {isNewUser ? (
+            <button onClick={handleSubmit}>Submit</button>
+          ) : (
+            <button onClick={handleSubmit}>Update</button>
+          )}
         </div>
       </div>
     </div>

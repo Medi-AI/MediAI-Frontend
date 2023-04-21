@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import Logo from "../../images/logo/logo-no-background.png";
 
 function Navbar({ currentPage }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isNewUser, setIsNewUser] = useState(true);
+
+  useEffect(() => {
+    let storedUserData = localStorage.getItem("mediai-user-data");
+    if (!storedUserData) {
+      setIsNewUser(true);
+      return;
+    }
+    storedUserData = JSON.parse(storedUserData);
+    setIsNewUser(false);
+  }, []);
 
   function handleToggleClick() {
     setIsOpen(!isOpen);
@@ -38,11 +49,8 @@ function Navbar({ currentPage }) {
               </a>
             </li>
             <li>
-              <a
-                href="/login"
-                className={currentPage === "Login" ? "active" : ""}
-              >
-                Login
+              <a href="/" className={currentPage === "Aboutus" ? "active" : ""}>
+                About Us
               </a>
             </li>
             <li>
@@ -69,6 +77,28 @@ function Navbar({ currentPage }) {
                 Profile
               </a>
             </li>
+            <li>
+              <a
+                href="/documents"
+                className={currentPage === "Documents" ? "active" : ""}
+              >
+                Documents
+              </a>
+            </li>
+            {isNewUser ? (
+              <li>
+                <a
+                  href="/login"
+                  className={currentPage === "Login" ? "active" : ""}
+                >
+                  Login
+                </a>
+              </li>
+            ) : (
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

@@ -1,5 +1,5 @@
 body {
-	background-color: #E0E9F4;
+	background-color: #e0e9f4;
 }
 
 .profile-div {
@@ -19,12 +19,11 @@ body {
 	height: 90%;
 	right: 30px;
 	bottom: 30px;
-
 }
 
 .bg-container {
 	position: fixed;
-	background-color: #015D81;
+	background-color: #015d81;
 	width: 60%;
 	height: 40%;
 	right: 60px;
@@ -51,7 +50,6 @@ body {
 .predict-div .input-selected {
 	width: 85%;
 	height: 43%;
-
 }
 
 .predict-div .input-selected>input {
@@ -61,7 +59,6 @@ body {
 	margin-bottom: 30px;
 	border-radius: 4px;
 	border: 1.2px solid grey;
-
 }
 
 .predict-div .selected-symptoms {
@@ -135,11 +132,11 @@ svg {
 	padding-right: 13px;
 }
 
-
 .selected-symptom-div {
 	display: flex;
 	flex: auto;
 	width: 100%;
+	overflow-x: scroll;
 }
 
 .predict-div>h2 {
@@ -163,4 +160,102 @@ svg {
 
 .submit-div>button {
 	height: 37px;
+}
+
+.second-container {
+	background-color: #b9d7ea;
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.second-container>h2 {
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	padding: 45px;
+	font-weight: 600;
+	color: #769fcd;
+	margin: 0;
+	font-size: 40px;
+}
+
+.output-div {
+	width: 100%;
+	height: 68%;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.info {
+	width: 55%;
+	height: 100%;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 1px 1px 5px 0.5px grey;
+	padding: 20px 40px;
+	overflow-y: scroll;
+}
+
+.graphs-div {
+	width: 38%;
+	height: 100%;
+	margin: 30px 0;
+}
+
+.graph {
+	width: 100%;
+	height: 60%;
+}
+
+.btn-div {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.btn-div>h2 {
+	font-size: 20px;
+	margin: 7px 0;
+}
+
+.btn-div .btns {
+	width: 25%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn-div>.btns>button {
+	width: 120px;
+	border-radius: 5px;
+	height: 34px;
+	font-weight: 600;
+}
+
+#btn-one {
+	background-color: #769fcd;
+	color: white;
+}
+
+#btn-two {
+	background-color: white;
+	color: #769fcd;
+}
+
+.result-heading {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.para {
+	margin: 5px 0;
+	font-size: 16px;
 }

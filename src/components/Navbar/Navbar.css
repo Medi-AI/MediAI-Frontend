@@ -123,10 +123,22 @@
 	animation-delay: 0.5s;
 }
 
+.overlay.open li:nth-of-type(5) {
+	animation-delay: 0.55s;
+}
+
+.overlay.open li:nth-of-type(6) {
+	animation-delay: 0.6s;
+}
+
+.overlay.open li:nth-of-type(7) {
+	animation-delay: 0.65s;
+}
+
 .overlay nav {
 	position: relative;
-	height: 70%;
-	top: 50%;
+	height: 50%;
+	top: 30%;
 	transform: translateY(-50%);
 	font-size: 50px;
 	font-family: 'Encode Sans', sans-serif;
@@ -145,7 +157,7 @@
 
 .overlay ul li {
 	display: block;
-	height: 25%;
+	height: 100%;
 	height: calc(100% / 4);
 	min-height: 50px;
 	position: relative;

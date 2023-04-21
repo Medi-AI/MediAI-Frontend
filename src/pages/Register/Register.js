@@ -41,18 +41,12 @@ const Register = () => {
       body: JSON.stringify(user),
     });
 
-    console.log(res);
-
     const authToken = res.headers.get("mediai-auth-token");
     const data = await res.json();
 
-    console.log(authToken);
-    console.log(data);
-
     if (res.status === 200 && authToken) {
       localStorage.setItem("mediai-auth-token", authToken);
-      localStorage.setItem("mediai-username", data.username);
-      localStorage.setItem("mediai-name", data.name);
+      localStorage.setItem("mediai-user-data", JSON.stringify(data.user));
       alert("Registration Successful");
       navigate("/profile");
     }

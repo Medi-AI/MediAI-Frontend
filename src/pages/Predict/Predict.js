@@ -1,16 +1,39 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "./Predict.css";
 import Symptoms from "./Symptoms";
 import PredictBG from "../../images/predictbg.png";
 
+import Barchart from "../../components/BarChart.js/Barchart";
+import Piechart from "../../components/PieChart.js/Piechart";
+import DiseaseEle from "./DiseaseEle";
+
 const Predict = () => {
   const [query, setQuery] = useState("");
   const [initialSymptoms, setInitialSymptoms] = useState(Symptoms);
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+  const [output, setOutput] = useState();
+  const [isHome, setIsHome] = useState(true);
 
-  const submit = async () => {};
+  const tempOutput = {
+    filtered_output: [
+      ["Common Cold", 0.33181244939511906],
+      ["Chronic cholestasis", 0.07406983383732302],
+    ],
+    message: "2 matches found",
+    output: [
+      ["(vertigo) Paroymsal  Positional Vertigo", 0.019047251972884975],
 
+      ["AIDS", 0.020293630102007805],
+      ["Acne", 0.02029363008909162],
+      ["Alcoholic hepatitis", 0.010321220135888036],
+      ["Allergy", 0.020020074912791137],
+      ["Arthritis", 0.01676428210168159],
+    ],
+  };
+
+  const navigate = useNavigate;
   const removeSymptom = (symptom) => {
     setInitialSymptoms((prevstate) => {
       return prevstate.filter((dataSymptom) => {
@@ -54,6 +77,10 @@ const Predict = () => {
     console.log("data sent");
     const data = await res.json();
     console.log(data);
+    setOutput(data);
+    setIsHome(false);
+    window.scroll(0, 1200);
+
     console.log(data["filtered_output"]);
   };
 
@@ -62,7 +89,7 @@ const Predict = () => {
       <Navbar currentPage="Predict" />
       <div className="profile-div">
         <div className="bg-container"></div>
-        <img className="bg-div" src={PredictBG}></img>
+        {isHome ? <img className="bg-div" src={PredictBG}></img> : null}
         <div className="predict-div">
           <div className="input-selected">
             <input
@@ -120,6 +147,29 @@ const Predict = () => {
           </div>
           <div className="submit-div">
             <button onClick={submitPredict}>Predict</button>
+          </div>
+        </div>
+      </div>
+      <div className="second-container" id="output">
+        <h2>OUR PROGNOSIS</h2>
+        <div className="output-div">
+          <div className="info">
+            {output ? <DiseaseEle output={output} /> : null}
+          </div>
+          <div className="graphs-div">
+            <div className="graph">
+              {output ? <Piechart output={output ? output : tempOutput} /> : ""}
+            </div>
+            <div className="graph">
+              {output ? <Barchart output={output ? output : tempOutput} /> : ""}
+            </div>
+          </div>
+        </div>
+        <div className="btn-div">
+          <h2>Do you want a doctor recommendation?</h2>
+          <div className="btns">
+            <button id="btn-one">YES</button>
+            <button id="btn-two">NO</button>
           </div>
         </div>
       </div>
