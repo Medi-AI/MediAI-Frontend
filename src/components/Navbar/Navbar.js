@@ -49,7 +49,10 @@ function Navbar({ currentPage }) {
               </a>
             </li>
             <li>
-              <a href="/" className={currentPage === "Aboutus" ? "active" : ""}>
+              <a
+                href="/aboutus"
+                className={currentPage === "Aboutus" ? "active" : ""}
+              >
                 About Us
               </a>
             </li>

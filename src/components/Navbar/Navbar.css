@@ -138,7 +138,7 @@
 .overlay nav {
 	position: relative;
 	height: 50%;
-	top: 30%;
+	top: 10%;
 	transform: translateY(-50%);
 	font-size: 50px;
 	font-family: 'Encode Sans', sans-serif;

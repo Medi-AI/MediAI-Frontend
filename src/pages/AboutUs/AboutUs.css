@@ -1,14 +1,12 @@
-/* .about-us {
+.about-us {
     width: 100%;
     height: 100%;
-}
-
-body {
     margin: 0;
     padding: 0;
-    background-image: url("img.bg.png");
+    background-image: url("../../images/about.jpg");
     background-size: cover;
 }
+
 
 .overlay {
     position: absolute;
@@ -22,7 +20,7 @@ body {
     align-items: center;
 }
 
-h1 {
+.about-us>h1 {
     font-size: 4rem;
     font-weight: 600;
     text-align: center;
@@ -50,14 +48,14 @@ h1 {
     margin-top: 5rem;
 }
 
-h2 {
+.about-us>h2 {
     font-size: 3rem;
     font-weight: 600;
     color: #333;
     margin-bottom: 2rem;
 }
 
-p {
+.about-us>p {
     font-size: 1.5rem;
     line-height: 2.5rem;
     text-align: center;
@@ -97,4 +95,4 @@ p {
     font-size: 2rem;
     font-weight: 600;
     color: #333;
-} */
+}

@@ -32,6 +32,10 @@ body {
 	z-index: -1;
 }
 
+.symptom>p {
+	margin-bottom: 0;
+}
+
 .predict-div {
 	margin-left: 100px;
 	width: 50%;

@@ -85,7 +85,7 @@ const Profile = () => {
   };
 
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:8080/profile", {
+    const res = await fetch("http://192.168.152.18:8080/profile", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
