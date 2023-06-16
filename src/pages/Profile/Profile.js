@@ -24,6 +24,7 @@ const Profile = () => {
 
   useEffect(() => {
     let storedUserData = localStorage.getItem("mediai-user-data");
+    console.log(storedUserData);
     if (!storedUserData) {
       alert("Please signup to continue");
       navigate("/register");
@@ -33,6 +34,7 @@ const Profile = () => {
     setUserData(storedUserData);
 
     const authToken = localStorage.getItem("mediai-auth-token");
+    console.log(authToken);
     if (!authToken) {
       alert("Please login to continue");
       navigate("/login");
@@ -42,6 +44,8 @@ const Profile = () => {
     const storedUserProfile = JSON.parse(
       localStorage.getItem("mediai-profile-data")
     );
+
+    console.log(storedUserProfile);
 
     if (storedUserProfile) {
       setIsNewUser(false);

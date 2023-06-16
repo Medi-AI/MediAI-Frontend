@@ -33,7 +33,7 @@ const Register = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://192.168.152.18:8080/register", {
+    const res = await fetch("http://localhost:8080/register", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",

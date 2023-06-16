@@ -118,7 +118,7 @@ const Documents = () => {
               <QRCode
                 className="qr-code"
                 style={{ width: "200px", height: "200px" }}
-                value={folderLink}
+                value={"htdp://localhost:3000/ProfileInfo.html"}
               />
             </div>
           </div>
@@ -137,9 +137,6 @@ const Documents = () => {
                 <a href={upload.documentLink}>Document</a>
               </p>
             </div>
-            {/* <div className="doc-delete">
-              <button onClick={() => deleteFile(upload._id)}>Delete</button>
-            </div> */}
           </li>
         ))}
       </ul>
