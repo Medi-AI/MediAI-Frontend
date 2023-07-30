@@ -5,7 +5,6 @@ const Barchart = ({ output }) => {
   if (output) {
     console.log("Output recieved");
   }
-  const filtered_output_array = output.filtered_output;
   const outputArray = output.output;
 
   const options = {

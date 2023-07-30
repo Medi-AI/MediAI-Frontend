@@ -17,6 +17,9 @@
 	position: fixed;
 }
 
+
+
+
 .hide-logo {
 	opacity: 0;
 	visibility: hidden;
@@ -205,4 +208,16 @@
 .overlay ul li a.active:after {
 	width: 100%;
 	background-color: #1f1f1f;
+}
+
+@media only screen and (max-width: 600px) {
+	.button_container {
+		left: 8%;
+	}
+
+	.logo-container {
+		width: 170px;
+		margin-left: 100px;
+	}
+
 }

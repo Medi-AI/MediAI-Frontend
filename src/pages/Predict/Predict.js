@@ -65,7 +65,7 @@ const Predict = () => {
     });
     console.log(symptomsArray);
 
-    const res = await fetch("https://mediai.pythonanywhere.com/predict", {
+    const res = await fetch("http://127.0.0.1:5000/predict", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
