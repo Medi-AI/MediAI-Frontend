@@ -1,0 +1,341 @@
+body {
+	background-color: #e0e9f4;
+}
+
+.profile-div {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: -1;
+}
+
+.bg-div {
+	position: absolute;
+	height: 90%;
+	right: 30px;
+	bottom: 30px;
+}
+
+.bg-container {
+	position: absolute;
+	background-color: #015d81;
+	width: 60%;
+	height: 40%;
+	right: 60px;
+	bottom: 30px;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.symptom > p {
+	margin-bottom: 0;
+}
+
+.predict-div {
+	margin-left: 100px;
+	width: 50%;
+	height: 72%;
+	background-color: white;
+	box-shadow: 1px 1px 10px 1px grey;
+	padding: 20px 0 0 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 3px;
+	z-index: 1;
+}
+
+.predict-div .input-selected {
+	width: 85%;
+	height: 45%;
+}
+
+.predict-div .input-selected > input {
+	width: 100%;
+	height: 40px;
+	margin: 0px 0 15px;
+	border-radius: 4px;
+	border: 1.2px solid grey;
+}
+
+input {
+	width: 80%;
+	height: 34px;
+	font-size: 16px;
+	outline: none;
+	border-radius: 5px;
+	padding: 0 10px;
+}
+
+.symptoms-container {
+	width: 100%;
+	border-radius: 10px;
+	margin: 0 auto;
+	padding: 10px 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	justify-items: center;
+	height: 80%;
+	row-gap: 8px;
+}
+
+.symptom {
+	width: 90%;
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	padding: 0 10px;
+	align-items: center;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid grey;
+}
+
+svg {
+	display: flex;
+	margin-left: auto;
+}
+
+.symptom > p {
+	width: 80%;
+	font-size: 13px;
+	font-weight: bold;
+	border-radius: 3px;
+}
+
+.symptom > input {
+	width: 25px;
+	margin: auto;
+}
+
+.selected-symptoms {
+	width: 85%;
+	border-radius: 10px;
+	margin: 0 0 0 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	justify-items: center;
+	height: 28%;
+	row-gap: 8px;
+	/* padding-left: 40px;
+	padding-right: 13px; */
+}
+
+.selected-symptom {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.selected-symptom-div {
+	display: flex;
+	flex: auto;
+	width: 100%;
+	/* overflow-x: scroll; */
+}
+
+.predict-div > h2 {
+	width: 90%;
+	font-size: 24px;
+	padding: 5px 20px;
+	margin: 15px 0 5px;
+	text-align: center;
+}
+
+.submit-div {
+	width: 30%;
+	text-align: center;
+	font-size: 18px;
+	padding: 2px;
+	margin: 8px;
+	background-color: #4294f0;
+	border-radius: 5px;
+	color: white;
+}
+
+.submit-div > button {
+	height: 37px;
+}
+
+.second-container {
+	background-color: #b9d7ea;
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.second-container > h2 {
+	width: 100%;
+	height: 20%;
+	text-align: center;
+	padding: 45px;
+	font-weight: 600;
+	color: #769fcd;
+	margin: 0;
+	font-size: 40px;
+}
+
+.output-div {
+	width: 100%;
+	height: 68%;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.info {
+	width: 55%;
+	height: 100%;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 1px 1px 5px 0.5px grey;
+	padding: 20px 40px;
+	overflow-y: scroll;
+}
+
+.graphs-div {
+	width: 38%;
+	height: 100%;
+	margin: 30px 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.graph {
+	width: 100%;
+	height: 80%;
+}
+.graph > p {
+	width: 100%;
+
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.btn-div {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.btn-div > h2 {
+	font-size: 20px;
+	margin: 7px 0;
+}
+
+.btn-div .btns {
+	width: 25%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn-div > .btns > button {
+	width: 120px;
+	border-radius: 5px;
+	height: 34px;
+	font-weight: 600;
+}
+
+#btn-one {
+	background-color: #769fcd;
+	color: white;
+}
+
+#btn-two {
+	background-color: white;
+	color: #769fcd;
+}
+
+.result-heading {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.para {
+	margin: 5px 0;
+	font-size: 16px;
+}
+
+@media (max-width: 640px) {
+	.predict-div {
+		width: 95%;
+		height: 70%;
+		margin: auto;
+	}
+	.predict-div .input-selected {
+		width: 94%;
+	}
+	.symptoms-container {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		overflow-y: scroll;
+	}
+	.selected-symptoms {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		overflow-y: scroll;
+	}
+	.second-container {
+		height: 200vh;
+	}
+
+	.second-container > h2 {
+		font-size: 30px;
+		padding: 10px;
+		height: 3%;
+		margin: 100px 0 10px 0;
+	}
+	.output-div {
+		flex-direction: column;
+		height: 70%;
+	}
+	.info {
+		width: 96%;
+	}
+	.graphs-div {
+		width: 96%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.graph {
+		width: 100%;
+		height: 50%;
+		margin: 10px 0;
+	}
+	.graph > p {
+		font-size: 30px;
+		margin-top: 15px;
+	}
+	.btn-div {
+		padding: 0 10px;
+		text-align: center;
+	}
+	.btn-div .btns {
+		margin: 10px 0;
+		width: 100%;
+		padding: 0 20px;
+	}
+	.btn-div > .btns > button {
+		width: 40%;
+		height: 40px;
+	}
+}

@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;600&family=Poppins:wght@700&display=swap");
+
+* {
+	font-family: "Encode Sans", sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+.border {
+	border: 1px solid black;
+}
+
+.border-aboutus {
+	border: 0.001px solid transparent;
+}
+
+.error-div {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-msg {
+	font-size: 15px;
+	color: red;
+}

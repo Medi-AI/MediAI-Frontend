@@ -1,0 +1,97 @@
+.main-home {
+	width: 100vw;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	background-image: url("../../images/home.jpg");
+}
+
+.heading-div {
+	margin-left: 150px;
+	width: 35%;
+	height: 75%;
+}
+
+.heading-div > h1 {
+	font-size: 55px;
+	font-weight: 500;
+	margin: 40px 0 15px 0;
+	letter-spacing: 0.2px;
+}
+
+.heading-div > p {
+	font-size: 25px;
+	width: 400px;
+	margin-bottom: 40px;
+	letter-spacing: 0.4px;
+}
+
+.heading-div > .btn-div {
+	width: 70%;
+	margin: 20px 0 0 0;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.heading-div > .btn-div > a {
+	padding: 10px 25px;
+	background-color: #769fcd;
+	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.heading-div > .btn-div > a > button {
+	text-align: center;
+	width: 100%;
+}
+
+.heading-div > .btn-div > a:hover {
+	transform: scale(1.05);
+	transition: 0.5s;
+}
+
+.heading-div > .btn-div > .predict-button {
+	font-size: 17px;
+	font-weight: 600;
+	width: 40%;
+	border-radius: 5px;
+	border: none;
+	color: white;
+	background-color: #769fcd;
+}
+
+.heading-div > .btn-div > .sec-button {
+	font-size: 17px;
+	font-weight: 600;
+	width: 40%;
+	border-radius: 5px;
+	border: solid 2px #769fcd;
+	color: #769fcd;
+	background-color: transparent;
+}
+
+@media (max-width: 640px) {
+	.heading-div {
+		margin: auto;
+		width: 92%;
+		height: 60%;
+	}
+	.heading-div > h1 {
+		font-size: 40px;
+	}
+	.heading-div > p {
+		font-size: 20px;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.heading-div .btn-div {
+		width: 100%;
+		padding: 0 5px 0 0;
+		margin: 0;
+	}
+}

@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Rajdhani:wght@700&family=Rubik:wght@600&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.register-container {
+	width: 30%;
+	height: 80%;
+	margin-left: 190px;
+	margin-top: 70px;
+}
+
+.register-container > h2 {
+	font-weight: 600;
+	color: rgb(64, 90, 95);
+	font-size: 50px;
+	margin: 10px 0;
+}
+
+.register-container > form .input-fields > .input-field {
+	padding: 5px 10px;
+	width: 100%;
+	margin: 10px 0;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.register-container > form .input-fields > .input-field > input {
+	background-color: transparent;
+	color: rgb(64, 90, 95);
+	outline: none;
+	font-size: 17px;
+	width: 100%;
+}
+
+.register-container > form .submit-btn > input {
+	margin: 10px 0 0 0;
+	font-size: 18px;
+	font-weight: 600;
+	width: 100%;
+	height: 42px;
+	border-radius: 5px;
+	color: white;
+	border: none;
+	background-color: #769fcd;
+	transition: all ease-in-out 0.3s;
+}
+
+.register-container > form .submit-btn > input:active {
+	transform: scale(1.2);
+}
+
+.register-container .tosignin {
+	width: 70%;
+	margin: 10px auto;
+}
+
+.register-container .tosignin > h4 {
+	font-weight: 400;
+	font-size: 15px;
+	color: rgb(64, 90, 95);
+	margin: 0 0 0 20px;
+}
+
+.register-as-div {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+}
+
+select {
+	font-size: 15px;
+	padding: 0 15px;
+	width: 100%;
+	margin: 10px 0;
+	height: 38px;
+	border-radius: 5px;
+	border: 1px solid white;
+	background-color: transparent;
+	color: rgb(165, 164, 164);
+	outline: none;
+}
+
+.select-items {
+	position: absolute;
+	background-color: transparent;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+/* For Mobile  */
+@media (max-width: 640px) {
+	.body-container {
+		flex-direction: column;
+	}
+
+	.register-container {
+		width: 90%;
+		height: 65%;
+		margin: 100px 0 0 0;
+	}
+
+	.register-container > h2 {
+		font-size: 40px;
+	}
+
+	.register-container > form .input-fields > input {
+		margin: 12px 0;
+	}
+
+	.register-container > form .submit-btn > input {
+		margin: 12px 0 0 0;
+	}
+
+	.heading-container {
+		width: 90%;
+		position: relative;
+		bottom: 10%;
+	}
+
+	.heading-container > h1 {
+		font-size: 40px;
+	}
+
+	#icon1 {
+		display: none;
+	}
+
+	#icon2 {
+		display: none;
+	}
+}
+
+#link {
+	cursor: pointer;
+	color: black;
+}
+
+#link:hover {
+	color: #769fcd;
+}
+
+.icons {
+	color: rgb(138, 138, 138);
+}
+
+.icon-div {
+	display: flex;
+}
+
+.register-container > form .submit-btn > input:hover {
+	transform: scale(1.03);
+	transition: 0.2s;
+}
+
+#registeras {
+	color: #405a5f;
+	border: 1px solid black;
+}

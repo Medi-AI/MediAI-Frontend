@@ -1,0 +1,12 @@
+.logout-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 2em;
+}
+
+.logout-page button {
+    padding: 1em 2em;
+    font-size: inherit;
+}

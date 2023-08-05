@@ -1,0 +1,82 @@
+.uploads-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.uploads-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 70%;
+    margin: auto;
+}
+
+.uploads-list-item h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.uploads-list-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.uploads-list-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    width: 30%;
+}
+
+.uploads-list-item a:hover {
+    text-decoration: underline;
+}
+
+.uploads-list-item .doc-name {
+    flex: 2;
+}
+
+.uploads-list-item .doc-desc {
+    flex: 5;
+    margin-right: 20px;
+}
+
+.uploads-list-item .doc-download {
+    flex: 1;
+    text-align: right;
+}
+
+.uploads-page h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 30px;
+    padding-top: 50px;
+}
+
+.uploads-page .container-of-button {
+    width: 100%;
+    height: 100px;
+    display: grid;
+}
+
+.uploads-page button {
+    background-color: #769fcd;
+    margin: auto;
+    border-radius: 5px;
+    padding: 10px;
+
+    color: white;
+    width: 25%;
+}
+
+.folder-link-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
