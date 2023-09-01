@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
+
 import "./Logout.css";
 
 const LogoutPage = () => {
@@ -15,6 +17,7 @@ const LogoutPage = () => {
 
   return (
     <div className="logout-page">
+      <Navbar currentPage="Logout" />
       {confirmLogout ? (
         <div>
           <h1>Are you sure you want to log out?</h1>

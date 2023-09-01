@@ -8,13 +8,9 @@
 
 .register-container {
 	width: 30%;
-	height: 60%;
+	height: 80%;
 	margin-left: 190px;
 	margin-top: 70px;
-}
-
-.register-container>form {
-	margin: 10px 0 5px 0;
 }
 
 .register-container>h2 {
@@ -25,7 +21,7 @@
 }
 
 .register-container>form .input-fields>.input-field {
-	padding: 7px 15px;
+	padding: 5px 10px;
 	width: 100%;
 	margin: 10px 0;
 	height: 45px;
@@ -51,11 +47,11 @@
 	color: white;
 	border: none;
 	background-color: #769fcd;
+	transition: all ease-in-out 0.3s;
 }
 
-.register-container>form .submit-btn>input :active {
+.register-container>form .submit-btn>input:active {
 	transform: scale(1.2);
-	transition: 0.5s;
 }
 
 .register-container .tosignin {
@@ -109,7 +105,11 @@ select {
 	.register-container {
 		width: 90%;
 		height: 65%;
-		margin-top: 30px;
+		margin: 100px 0 0 0;
+	}
+
+	.register-container>h2 {
+		font-size: 40px;
 	}
 
 	.register-container>form .input-fields>input {

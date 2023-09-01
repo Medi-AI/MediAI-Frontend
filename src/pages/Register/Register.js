@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 import "./Register.css";
-import { Await, Link, useNavigate } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -17,7 +19,6 @@ const Register = () => {
   });
   const [showPasswordOne, setShowPasswordOne] = useState(false);
   const [showPasswordTwo, setShowPasswordTwo] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(null);
 
   const navigate = useNavigate();
 
@@ -33,7 +34,7 @@ const Register = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:8080/register", {
+    const res = await fetch("https://mediai-server.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -47,23 +48,22 @@ const Register = () => {
     if (res.status === 200 && authToken) {
       localStorage.setItem("mediai-auth-token", authToken);
       localStorage.setItem("mediai-user-data", JSON.stringify(data.user));
-      alert("Registration Successful");
+      toast.success("Registration successful!");
       navigate("/profile");
     }
-
-    setErrorMsg(data.message);
+    if (data.message === '"repeat_password" must be [ref:password]') {
+      toast.error("Passwords do not match!");
+    } else {
+      toast.error(data.message);
+    }
   };
   return (
     <div className="main-container">
       <Navbar currentPage="Login" />
-      <div className="body-container">
+      <div className="body-container ">
         <div className="register-container">
           <h2>Signup to MediAI</h2>
-          {errorMsg ? (
-            <p className="relative top-[5px] text-[red] text-center">
-              {errorMsg}
-            </p>
-          ) : null}
+
           <form>
             <div className="input-fields">
               <div className="input-field">

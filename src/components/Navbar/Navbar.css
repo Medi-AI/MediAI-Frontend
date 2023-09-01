@@ -1,24 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap");
 
 .navbar-container {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	background: #F7FBFC;
+	background: #f7fbfc;
 	z-index: 1000;
 }
 
 .logo-container {
-	position: relative;
+	position: absolute;
 	width: 218px;
 	margin-left: 120px;
 	margin-top: 25px;
-	position: fixed;
 }
-
-
-
 
 .hide-logo {
 	opacity: 0;
@@ -76,7 +72,6 @@
 	border-radius: 20%;
 }
 
-
 .button_container span:nth-of-type(2) {
 	top: 11px;
 }
@@ -91,7 +86,7 @@
 
 .overlay {
 	position: fixed;
-	background: #F7FBFC;
+	background: #f7fbfc;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -141,10 +136,10 @@
 .overlay nav {
 	position: relative;
 	height: 50%;
-	top: 10%;
+	top: 30%;
 	transform: translateY(-50%);
 	font-size: 50px;
-	font-family: 'Encode Sans', sans-serif;
+	font-family: "Encode Sans", sans-serif;
 	font-weight: 400;
 	text-align: center;
 }
@@ -170,7 +165,7 @@
 .overlay ul li a {
 	display: block;
 	position: relative;
-	color: #769FCD;
+	color: #769fcd;
 	text-decoration: none;
 	overflow: hidden;
 }
@@ -182,7 +177,7 @@
 }
 
 .overlay ul li a:after {
-	content: '';
+	content: "";
 	position: absolute;
 	bottom: 0;
 	left: 50%;
@@ -210,14 +205,8 @@
 	background-color: #1f1f1f;
 }
 
-@media only screen and (max-width: 600px) {
-	.button_container {
-		left: 8%;
-	}
-
+@media (max-width: 640px) {
 	.logo-container {
-		width: 170px;
-		margin-left: 100px;
+		margin-left: 80px;
 	}
-
 }

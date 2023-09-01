@@ -40,11 +40,10 @@ function MedicalRecordsUpload() {
       }
     });
 
-    xhr.open("POST", "http://localhost:8080/upload");
+    xhr.open("POST", "https://mediai-server.onrender.com/upload");
     xhr.setRequestHeader("mediai-auth-token", authToken);
     xhr.onload = () => {
       const data = JSON.parse(xhr.response);
-      console.log(data);
       alert(data.message);
       if (xhr.status === 200) navigate("/");
       else if (xhr.status === 401) navigate("/login");

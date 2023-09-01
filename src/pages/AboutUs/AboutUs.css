@@ -1,98 +1,195 @@
 .about-us {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-image: url("../../images/about.jpg");
-    background-size: cover;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
+.aboutus-heading {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	position: relative;
+	background-image: url("../../images/about.jpg");
+	background-size: cover;
 }
 
-.about-us>h1 {
-    font-size: 4rem;
-    font-weight: 600;
-    text-align: center;
-    color: #333;
+.aboutus-heading-overlay {
+	width: 70%;
+	height: 80%;
+	background-color: white;
+	opacity: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.svg-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
+.aboutus-heading>h1 {
+	font-size: 70px;
+	font-weight: 700;
+	position: absolute;
+	z-index: 10;
 }
 
-.svg-row svg {
-    width: 10rem;
-    height: 10rem;
-    margin: 0 2rem;
+.svgs-wrapper {
+	width: 100%;
+	height: 300px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: row;
 }
 
-.section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5rem;
+.svg-container {
+	width: 180px;
+	height: 180px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
-.about-us>h2 {
-    font-size: 3rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 2rem;
+.svg-container>img {
+	width: 80%;
+	height: 80%;
 }
 
-.about-us>p {
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    text-align: center;
-    color: #333;
-    max-width: 50rem;
+.svg-container>p {
+	font-size: 18px;
+	font-weight: 500;
+	text-align: center;
+	margin: 10px 0;
 }
 
-.bulb-icon {
-    position: absolute;
-    top: 15rem;
-    right: 10%;
+.aboutus-content-wrapper {
+	width: 100%;
+	height: 400px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: row;
 }
 
-.vision-icon {
-    position: absolute;
-    top: 31rem;
-    right: 10%;
+.aboutus-content-text {
+	width: 60%;
+	height: 60%;
 }
 
-.team {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 5rem;
+.aboutus-content-text>h2 {
+	font-size: 45px;
+	font-weight: 700;
 }
 
-.team img {
-    width: 15rem;
-    height: 15rem;
-    border-radius: 50%;
-    margin: 2rem;
-    object-fit: cover;
+.aboutus-content-text>p {
+	font-size: 20px;
+	font-weight: 500;
+	text-align: justify;
+	width: 100%;
 }
 
-.team p {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #333;
+.aboutus-content-icon {
+	width: 250px;
+	height: 250px;
+}
+
+.aboutus-content-icon>svg {
+	width: 100%;
+	height: 100%;
+}
+
+.meet-team-wrapper {
+	width: 100%;
+	height: 400px;
+}
+
+.meet-team-wrapper>h2 {
+	font-size: 45px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.team-members {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.team-member {
+	width: 250px;
+	height: 250px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.team-member>img {
+	width: 75%;
+	height: 75%;
+
+	border-radius: 100%;
+}
+
+.team-member>p {
+	font-weight: bold;
+	color: #769fcd;
+	text-align: center;
+	margin: auto;
+}
+
+@media (max-width: 640px) {
+	.aboutus-heading {
+		height: 60vh;
+	}
+
+	.aboutus-heading>h1 {
+		font-size: 60px;
+	}
+
+	.svg-container>img {
+		width: auto;
+		height: 40%;
+	}
+
+	.svg-container>p {
+		font-size: 16px;
+	}
+
+	.aboutus-content-wrapper {
+		height: 600px;
+	}
+
+	.aboutus-content-text {
+		width: 90%;
+	}
+
+	.aboutus-content-icon {
+		width: 150px;
+		height: 150px;
+	}
+
+	#motivation {
+		flex-direction: column-reverse;
+	}
+
+	#vision {
+		flex-direction: column;
+	}
+
+	.team-members {
+		gap: 10px;
+	}
+
+	.team-member {
+		width: 170px;
+		height: 170px;
+	}
 }

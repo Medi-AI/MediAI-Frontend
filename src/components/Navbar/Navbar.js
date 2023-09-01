@@ -23,8 +23,9 @@ function Navbar({ currentPage }) {
   return (
     <div>
       <div className="navbar-container">
-        <a className="logo-container" href="/">
+        <a className="logo-container " href="/">
           <img
+            title="MediAI"
             src={Logo}
             alt="Logo"
             className={isOpen ? "hide-logo" : "show-logo"}
@@ -99,7 +100,12 @@ function Navbar({ currentPage }) {
               </li>
             ) : (
               <li>
-                <a href="/logout">Logout</a>
+                <a
+                  href="/logout"
+                  className={currentPage === "Logout" ? "active" : ""}
+                >
+                  Logout
+                </a>
               </li>
             )}
           </ul>

@@ -2,9 +2,6 @@ import React from "react";
 import Chart from "react-apexcharts";
 
 const Barchart = ({ output }) => {
-  if (output) {
-    console.log("Output recieved");
-  }
   const outputArray = output.output;
 
   const options = {

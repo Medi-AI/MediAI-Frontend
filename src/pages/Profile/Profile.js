@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 import Navbar from "../../components/Navbar";
 
@@ -24,9 +25,8 @@ const Profile = () => {
 
   useEffect(() => {
     let storedUserData = localStorage.getItem("mediai-user-data");
-    console.log(storedUserData);
     if (!storedUserData) {
-      alert("Please signup to continue");
+      toast.error("Please register first");
       navigate("/register");
       return;
     }
@@ -34,9 +34,8 @@ const Profile = () => {
     setUserData(storedUserData);
 
     const authToken = localStorage.getItem("mediai-auth-token");
-    console.log(authToken);
     if (!authToken) {
-      alert("Please login to continue");
+      toast.error("Please login to continue");
       navigate("/login");
       return;
     }
@@ -44,8 +43,6 @@ const Profile = () => {
     const storedUserProfile = JSON.parse(
       localStorage.getItem("mediai-profile-data")
     );
-
-    console.log(storedUserProfile);
 
     if (storedUserProfile) {
       setIsNewUser(false);
@@ -89,7 +86,7 @@ const Profile = () => {
   };
 
   const handleSubmit = async () => {
-    const res = await fetch("http://192.168.152.18:8080/profile", {
+    const res = await fetch("https://mediai-server.onrender.com/profile", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -109,105 +106,140 @@ const Profile = () => {
     setErrorMsg(data.message);
   };
 
-  if (!userData || (isNewUser && !userProfile)) {
-    return null; // or render a loading indicator
-  }
-
   return (
-    <div className="profile-main-container">
-      <Navbar currentPage="Profile" />
-      <div className="profile-container">
-        <div className="profile-heading">
-          <h2>Your Profile</h2>
-          <p>{errorMsg}</p>
+    <>
+      {userData ? (
+        <div className="profile-main-container">
+          <Navbar currentPage="Profile" />
+          <div className="profile-container">
+            <div className="profile-heading">
+              <h2>Your Profile</h2>
+              <p>{errorMsg}</p>
+            </div>
+            <div className="profile-inputs">
+              <input
+                value={userData.name}
+                name="name"
+                type="text"
+                placeholder="Name"
+                onChange={handleChange}
+              />
+              <input
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.dob,
+                    })}
+                onChange={handleChange}
+                name="dob"
+                type="date"
+                placeholder="DOB"
+              />
+              <select
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.gender,
+                    })}
+                name="gender"
+                onChange={handleChange}
+              >
+                <option>Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+              <select
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.bloodgrp,
+                    })}
+                name="bloodgrp"
+                onChange={handleChange}
+              >
+                <option>Blood Group</option>
+                <option>A+</option>
+                <option>B+</option>
+                <option>AB+</option>
+                <option>O+</option>
+                <option>A-</option>
+                <option>B-</option>
+                <option>AB-</option>
+                <option>O-</option>
+              </select>
+              <input
+                onChange={handleChange}
+                name="phoneno"
+                type="number"
+                placeholder="Phone No."
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.phoneno,
+                    })}
+              />
+              <input
+                onChange={handleChange}
+                name="emergencyContact"
+                type="number"
+                placeholder="Emergency Contact No."
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.emergencyContact,
+                    })}
+              />
+              <input
+                onChange={handleChange}
+                name="address"
+                className="full-input"
+                type="text"
+                placeholder="Address"
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.address,
+                    })}
+              />
+              <input
+                onChange={handleChange}
+                name="medicalhistory"
+                className="full-input"
+                type="text"
+                placeholder="Medical History"
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.medicalhistory,
+                    })}
+              />
+              <input
+                onChange={handleChange}
+                name="allergies"
+                className="full-input"
+                type="text"
+                placeholder="Allergies if any"
+                {...(isNewUser
+                  ? {}
+                  : {
+                      value: userProfile.allergies,
+                    })}
+              />
+            </div>
+            <div className="profile-submit">
+              {isNewUser ? (
+                <button onClick={handleSubmit}>Submit</button>
+              ) : (
+                <button onClick={handleSubmit}>Update</button>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="profile-inputs">
-          <input
-            value={userData.name}
-            name="name"
-            type="text"
-            placeholder="Name"
-          />
-          <input
-            {...(isNewUser ? {} : { value: userProfile.dob })}
-            onChange={handleChange}
-            name="dob"
-            type="date"
-            placeholder="DOB"
-          />
-          <select
-            {...(isNewUser ? {} : { value: userProfile.gender })}
-            name="gender"
-            onChange={handleChange}
-          >
-            <option>Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-          <select
-            {...(isNewUser ? {} : { value: userProfile.bloodgrp })}
-            name="bloodgrp"
-            onChange={handleChange}
-          >
-            <option>Blood Group</option>
-            <option>A+</option>
-            <option>B+</option>
-            <option>AB+</option>
-            <option>O+</option>
-            <option>A-</option>
-            <option>B-</option>
-            <option>AB-</option>
-            <option>O-</option>
-          </select>
-          <input
-            onChange={handleChange}
-            name="phoneno"
-            type="number"
-            placeholder="Phone No."
-            {...(isNewUser ? {} : { value: userProfile.phoneno })}
-          />
-          <input
-            onChange={handleChange}
-            name="emergencyContact"
-            type="number"
-            placeholder="Emergency Contact No."
-            {...(isNewUser ? {} : { value: userProfile.emergencyContact })}
-          />
-          <input
-            onChange={handleChange}
-            name="address"
-            className="full-input"
-            type="text"
-            placeholder="Address"
-            {...(isNewUser ? {} : { value: userProfile.address })}
-          />
-          <input
-            onChange={handleChange}
-            name="medicalhistory"
-            className="full-input"
-            type="text"
-            placeholder="Medical History"
-            {...(isNewUser ? {} : { value: userProfile.medicalhistory })}
-          />
-          <input
-            onChange={handleChange}
-            name="allergies"
-            className="full-input"
-            type="text"
-            placeholder="Allergies if any"
-            {...(isNewUser ? {} : { value: userProfile.allergies })}
-          />
-        </div>
-        <div className="profile-submit">
-          {isNewUser ? (
-            <button onClick={handleSubmit}>Submit</button>
-          ) : (
-            <button onClick={handleSubmit}>Update</button>
-          )}
-        </div>
-      </div>
-    </div>
+      ) : (
+        navigate("/register")
+      )}
+    </>
   );
 };
 

@@ -5,10 +5,16 @@
 
 * {
 	font-family: "Encode Sans", sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
 .border {
-	border: 2px solid black;
+	border: 1px solid black;
+}
+
+.border-aboutus {
+	border: 0.001px solid transparent;
 }
 
 .error-div {

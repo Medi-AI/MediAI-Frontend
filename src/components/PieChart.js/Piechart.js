@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
 const Piechart = ({ output }) => {
-  if (output) {
-    console.log("Output recieved");
-  }
-  console.log("First");
   let data = [];
 
-  const filtered_output_array = output.filtered_output;
-  const outputArray = output.output;
-
-  console.log("Second");
+  const filtered_output_array = output.output;
 
   const defaultLabelStyle = {
     fontSize: "4px",

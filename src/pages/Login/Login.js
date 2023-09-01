@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const [user, setUser] = useState({});
-  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const Login = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:8080/login", {
+    const res = await fetch("https://mediai-server.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -36,25 +36,21 @@ const Login = () => {
       localStorage.setItem("mediai-auth-token", authToken);
       localStorage.setItem("mediai-user-data", JSON.stringify(data.user));
       localStorage.setItem("mediai-profile-data", JSON.stringify(data.profile));
+      toast.success("Login successful!");
       navigate("/");
       return;
     }
 
-    setError(data.message);
+    toast.error(data.message);
   };
   return (
     <>
-      <div className="main-container">
+      <div className="main-container ">
         <Navbar currentPage="Login" />
-        <div className="body-container">
-          <div className="login-container">
+        <div className="body-container ">
+          <div className="login-container ">
             <div className="heading">
               <h2>Login to MediAI</h2>
-              {error ? (
-                <p className="relative top-[5px] text-[red] text-center">
-                  {error}
-                </p>
-              ) : null}
             </div>
             <form className="form-container">
               <input

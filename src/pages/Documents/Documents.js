@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import QRCode from "qrcode.react";
 import "./Documents.css";
 import Navbar from "../../components/Navbar/Navbar";
@@ -13,14 +14,14 @@ const Documents = () => {
   useEffect(() => {
     let storedUserData = localStorage.getItem("mediai-user-data");
     if (!storedUserData) {
-      alert("Please signup to continue");
+      toast.error("Please signup to continue");
       navigate("/register");
       return;
     }
     storedUserData = JSON.parse(storedUserData);
 
     // Replace with your own API endpoint that generates the folder link
-    fetch("http://localhost:8080/getFolderLink", {
+    fetch("https://mediai-server.onrender.com/getFolderLink", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -45,7 +46,7 @@ const Documents = () => {
       });
 
     // Replace with your own API endpoint that provides the list of uploads
-    fetch("http://localhost:8080/getFiles", {
+    fetch("https://mediai-server.onrender.com/getFiles", {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -63,7 +64,6 @@ const Documents = () => {
         }
       })
       .then((data) => {
-        console.log(data.files);
         setUploads(data.files);
       })
       .catch((error) => {
@@ -106,7 +106,7 @@ const Documents = () => {
     <div className="uploads-page">
       <Navbar currentPage="Documents" />
       <h1>Uploaded Files</h1>
-      <div class="container-of-button">
+      <div className="container-of-button">
         <button onClick={handleShareFolder}>Share Folder</button>
       </div>
 
@@ -117,8 +117,11 @@ const Documents = () => {
             <div className="qr-code-div">
               <QRCode
                 className="qr-code"
-                style={{ width: "200px", height: "200px" }}
-                value={"htdp://localhost:3000/ProfileInfo.html"}
+                style={{
+                  width: "200px",
+                  height: "200px",
+                }}
+                value={folderLink}
               />
             </div>
           </div>

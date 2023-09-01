@@ -1,53 +1,107 @@
 import React from "react";
 import "./AboutUs.css";
-import { ReactComponent as BulbIcon } from "../../images/bulb.svg";
-import { ReactComponent as VisionIcon } from "../../images/vision.svg";
-import { ReactComponent as TeamIcon } from "../../images/team.svg";
+import Navbar from "../../components/Navbar/Navbar";
 
 const AboutUs = () => {
   return (
     <div className="about-us">
-      <div className="overlay">
+      <Navbar currentPage="Aboutus" />
+      <div className="aboutus-heading">
         <h1>About Us</h1>
+        <div className="aboutus-heading-overlay"></div>
       </div>
-      <div className="svg-row">
-        <BulbIcon />
-        <VisionIcon />
-        <TeamIcon />
+      <div className="svgs-wrapper">
+        <a href="#motivation" className="svg-container">
+          <img alt="Bulb" src="images/Bulb.png" className="svg-icon" />
+          <p>Our Motivation </p>
+        </a>
+        <a href="#vision" className="svg-container">
+          <img alt="Vision" src="images/Vision.png" className="svg-icon" />
+          <p>Our Vision</p>
+        </a>
+        <a href="#team" className="svg-container">
+          <img alt="Team" src="images/Team.png" className="svg-icon" />
+          <p>Meet the Team</p>
+        </a>
       </div>
-      <div className="section">
-        <h2>Motivation</h2>
-        <p>
-          Our motivation is to provide the best service to our customers and to
-          make a positive impact on the world.
-        </p>
-        <div className="bulb-icon">
-          <BulbIcon />
+      <div id="motivation" className="aboutus-content-wrapper">
+        <div className="aboutus-content-text">
+          <h2>Our Motivation</h2>
+          <p>
+            Our motivation at mediAI is simple - to use AI to improve healthcare
+            outcomes for everyone. We believe healthcare is a fundamental right
+            and we are passionate about making it accessibleto all. Our team is
+            driven by the potential of AI to transform healthcare and we are
+            committed to making a real difference in people's lives.
+          </p>
+        </div>
+        <div className="aboutus-content-icon">
+          <img alt="Bulb" src="images/Bulb.png" className="svg-icon" />
         </div>
       </div>
-      <div className="section">
-        <h2>Vision</h2>
-        <p>
-          Our vision is to be a leading provider of innovative solutions that
-          help people achieve their goals.
-        </p>
-        <div className="vision-icon">
-          <VisionIcon />
+      <div id="vision" className="aboutus-content-wrapper">
+        <div className="aboutus-content-icon">
+          <img alt="Vision" src="images/Vision.png" className="svg-icon" />
+        </div>
+        <div className="aboutus-content-text">
+          <h2>Our Vision</h2>
+          <p>
+            Our goal is to make high-quality health information accessible to
+            everyone, regardless of their background or location. We believe
+            that by democratizing access to medical knowledge, we can help to
+            reduce health disparities and improve health outcomes for all.
+          </p>
         </div>
       </div>
-      <div className="section">
+      <div id="team" className="meet-team-wrapper">
         <h2>Meet the Team</h2>
-        <div className="team">
-          {/* <img src="./team-member-1.jpg" alt="Team Member 1" /> */}
-          <p>John Smith</p>
-          {/* <img src="./team-member-2.jpg" alt="Team Member 2" /> */}
-          <p>Jane Doe</p>
-          {/* <img src="./team-member-3.jpg" alt="Team Member 3" /> */}
-          <p>Mike Johnson</p>
-          {/* <img src="./team-member-4.jpg" alt="Team Member 4" /> */}
-          <p>Sarah Lee</p>
-          {/* <img src="./team-member-5.jpg" alt="Team Member 5" /> */}
-          <p>David Kim</p>
+        <div className="team-members">
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/GopalSaraf"
+            className="team-member"
+          >
+            <img src="images/gopal.png" alt="Gopal Saraf" />
+            <p>Gopal Saraf</p>
+          </a>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/OzDiya"
+            className="team-member"
+          >
+            <img src="images/diya.png" alt="Diya Oswal" />
+            <p>Diya Oswal</p>
+          </a>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/sabaneriddhi"
+            className="team-member"
+          >
+            <img src="images/riddhi.png" alt="Riddhi Sabane" />
+            <p>Riddhi Sabane</p>
+          </a>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/parthsali"
+            className="team-member"
+          >
+            <img src="images/parth2.jpg" alt="Parth Sali" />
+            <p>Parth Sali</p>
+          </a>
+
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/mugdha0611"
+            className="team-member"
+          >
+            <img src="images/mugdha.png" alt="Mugdha Kulkarni" />
+            <p>Mugdha Kulkarni</p>
+          </a>
         </div>
       </div>
     </div>
