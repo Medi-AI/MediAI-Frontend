@@ -77,20 +77,39 @@ const Documents = () => {
 
   const deleteFile = (fileId) => {
     fetch("https://mediai-server.onrender.com/deleteFile", {
-      method: "DELETE",
+      method: "POST",
       headers: {
         "Content-Type": "Application/json",
         "mediai-auth-token": localStorage.getItem("mediai-auth-token"),
       },
       body: JSON.stringify({
-        fileId: fileId,
+        fileID: fileId,
       }),
     })
       .then((response) => {
         if (response.ok) {
-          setUploads((prevUploads) =>
-            prevUploads.filter((upload) => upload._id !== fileId)
-          );
+          toast.success("File deleted successfully");
+          fetch("https://mediai-server.onrender.com/getFiles", {
+            method: "POST",
+            headers: {
+              "Content-Type": "Application/json",
+              "mediai-auth-token": localStorage.getItem("mediai-auth-token"),
+            },
+            body: JSON.stringify({
+              userID: JSON.parse(localStorage.getItem("mediai-user-data"))._id,
+            }),
+          })
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              }
+            })
+            .then((data) => {
+              setUploads(data.files);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
         } else {
           throw new Error("Failed to delete file");
         }
@@ -139,7 +158,7 @@ const Documents = () => {
               </p>
             </div>
             <div className="doc-delete">
-              <button onClick={() => deleteFile(upload.documentLink)}>
+              <button onClick={() => deleteFile(upload.fileID)}>
                 <MdOutlineDelete />
               </button>
             </div>
