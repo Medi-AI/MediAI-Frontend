@@ -1,21 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
-import "./Upload.css";
 import uploadBG from "../../images/uploadBG.png";
 import Giphy from "../../images/giphyy.gif";
 import Navbar from "../../components/Navbar/Navbar";
+import "./Upload.css";
 
 function MedicalRecordsUpload() {
   const navigate = useNavigate();
+  const [userID, setUserID] = useState("");
+  const [authToken, setAuthToken] = useState("");
   const [documentName, setDocumentName] = useState("");
   const [documentDescription, setDocumentDescription] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
 
-  const authToken = localStorage.getItem("mediai-auth-token");
-  const userID = JSON.parse(localStorage.getItem("mediai-user-data"))._id;
+  useEffect(() => {
+    let storedUserData = localStorage.getItem("mediai-user-data");
+    if (!storedUserData) {
+      toast.error("Please login to continue");
+      navigate("/login");
+      return;
+    }
+    storedUserData = JSON.parse(storedUserData);
+    setUserID(storedUserData._id);
+
+    const authToken = localStorage.getItem("mediai-auth-token");
+    if (!authToken) {
+      toast.error("Please login to continue");
+      navigate("/login");
+      return;
+    }
+    setAuthToken(authToken);
+  }, []);
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);

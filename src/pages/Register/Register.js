@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-
-import "./Register.css";
-
 import { Link, useNavigate } from "react-router-dom";
-
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+
 import Navbar from "../../components/Navbar";
+import "./Register.css";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -135,9 +133,6 @@ const Register = () => {
               <div className="register-as-div">
                 <select name="RegisterAs" onChange={handleChange}>
                   <option
-                    // style={{
-                    // 	color: "#405a5f",
-                    // }}
                     id="registeras"
                     className="select-items"
                     value="Register As"

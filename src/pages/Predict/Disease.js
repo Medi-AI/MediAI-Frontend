@@ -1177,4 +1177,4 @@ const Disease = [
   },
 ];
 
-module.exports = Disease;
+export default Disease;

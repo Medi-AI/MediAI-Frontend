@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { isMobile } from "react-device-detect";
 
 import Navbar from "../../components/Navbar";
-import "./Predict.css";
 import Symptoms from "./Symptoms";
 import PredictBG from "../../images/predictbg.png";
-
 import Piechart from "../../components/PieChart.js/Piechart";
 import DiseaseEle from "./DiseaseEle";
 import Loading from "../../components/Loading/Loading";
+import "./Predict.css";
 
 const Predict = () => {
   const [query, setQuery] = useState("");
@@ -72,7 +71,7 @@ const Predict = () => {
       <div className="profile-div ">
         <div className="bg-container"></div>
 
-        <img className="bg-div" src={PredictBG}></img>
+        <img className="bg-div" src={PredictBG} alt="Predict"></img>
 
         <div className="predict-div ">
           <div className="input-selected ">

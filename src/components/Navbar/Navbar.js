@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./Navbar.css";
+import { Link } from "react-router-dom";
+
 import Logo from "../../images/logo/logo-no-background.png";
+import "./Navbar.css";
 
 function Navbar({ currentPage }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,14 +25,14 @@ function Navbar({ currentPage }) {
   return (
     <div>
       <div className="navbar-container">
-        <a className="logo-container " href="/">
+        <Link to="/" className="logo-container">
           <img
             title="MediAI"
             src={Logo}
             alt="Logo"
             className={isOpen ? "hide-logo" : "show-logo"}
           />
-        </a>
+        </Link>
         <div
           className={isOpen ? "button_container active" : "button_container"}
           id="toggle"
@@ -45,67 +47,67 @@ function Navbar({ currentPage }) {
         <nav className="overlay-menu">
           <ul>
             <li>
-              <a href="/" className={currentPage === "Home" ? "active" : ""}>
+              <Link to="/" className={currentPage === "Home" ? "active" : ""}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/aboutus"
+              <Link
+                to="/aboutus"
                 className={currentPage === "Aboutus" ? "active" : ""}
               >
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/predict"
+              <Link
+                to="/predict"
                 className={currentPage === "Predict" ? "active" : ""}
               >
                 Predict
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/upload"
+              <Link
+                to="/upload"
                 className={currentPage === "Upload" ? "active" : ""}
               >
                 Upload
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/profile"
+              <Link
+                to="/profile"
                 className={currentPage === "Profile" ? "active" : ""}
               >
                 Profile
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/documents"
+              <Link
+                to="/documents"
                 className={currentPage === "Documents" ? "active" : ""}
               >
                 Documents
-              </a>
+              </Link>
             </li>
             {isNewUser ? (
               <li>
-                <a
-                  href="/login"
+                <Link
+                  to="/login"
                   className={currentPage === "Login" ? "active" : ""}
                 >
                   Login
-                </a>
+                </Link>
               </li>
             ) : (
               <li>
-                <a
-                  href="/logout"
+                <Link
+                  to="/logout"
                   className={currentPage === "Logout" ? "active" : ""}
                 >
                   Logout
-                </a>
+                </Link>
               </li>
             )}
           </ul>

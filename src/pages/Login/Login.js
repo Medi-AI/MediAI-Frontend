@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
 import { toast } from "react-hot-toast";
+
+import Navbar from "../../components/Navbar/Navbar";
+import "./Login.css";
 
 const Login = () => {
   const [user, setUser] = useState({});

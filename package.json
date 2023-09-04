@@ -1,8 +1,9 @@
 {
 	"name": "mediai-frontend",
 	"version": "0.1.0",
-	"private": true,
+	"private": false,
 	"proxy": "https://mediai-server.onrender.com",
+	"homepage": "https://mediai.gopalsaraf.com",
 	"dependencies": {
 		"@emotion/react": "^11.10.6",
 		"@emotion/styled": "^11.10.6",

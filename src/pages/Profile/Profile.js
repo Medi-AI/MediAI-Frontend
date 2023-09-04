@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import "./Profile.css";
+
 import Navbar from "../../components/Navbar";
+import "./Profile.css";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ const Profile = () => {
   useEffect(() => {
     let storedUserData = localStorage.getItem("mediai-user-data");
     if (!storedUserData) {
-      toast.error("Please register first");
-      navigate("/register");
+      toast.error("Please login to continue");
+      navigate("/login");
       return;
     }
     storedUserData = JSON.parse(storedUserData);
@@ -73,7 +74,7 @@ const Profile = () => {
         allergies: "",
       });
     }
-  }, []);
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;

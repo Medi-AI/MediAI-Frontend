@@ -1241,4 +1241,4 @@ const Symptoms = [
   },
 ];
 
-module.exports = Symptoms;
+export default Symptoms;

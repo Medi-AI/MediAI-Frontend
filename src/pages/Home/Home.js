@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import "./Home.css";
 import Navbar from "../../components/Navbar/Navbar";
+import "./Home.css";
 
 const Home = () => {
   const user = localStorage.getItem("mediai-user-data");
@@ -16,17 +17,17 @@ const Home = () => {
             recommendations, and smarter medical records management.
           </p>
           <div className="btn-div">
-            <a href="predict" className="predict-button">
+            <Link to="/predict" className="predict-button">
               <button>Predict</button>
-            </a>
+            </Link>
             {user ? (
-              <a href="upload" className="sec-button">
+              <Link to="/upload" className="sec-button">
                 <button>Upload</button>
-              </a>
+              </Link>
             ) : (
-              <a href="login" className="sec-button">
+              <Link to="/login" className="sec-button">
                 <button>Login</button>
-              </a>
+              </Link>
             )}
           </div>
         </div>

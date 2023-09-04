@@ -2,25 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import QRCode from "qrcode.react";
-import "./Documents.css";
+import { MdOutlineDelete } from "react-icons/md";
+
 import Navbar from "../../components/Navbar/Navbar";
+import "./Documents.css";
 
 const Documents = () => {
   const navigate = useNavigate();
   const [uploads, setUploads] = useState([]);
   const [folderLink, setFolderLink] = useState(null);
-  const [showQRCode, setShowQRCode] = useState(false); // add state for displaying QR code
+  const [showQRCode, setShowQRCode] = useState(false);
 
   useEffect(() => {
     let storedUserData = localStorage.getItem("mediai-user-data");
     if (!storedUserData) {
-      toast.error("Please signup to continue");
-      navigate("/register");
+      toast.error("Please login to continue");
+      navigate("/login");
       return;
     }
     storedUserData = JSON.parse(storedUserData);
 
-    // Replace with your own API endpoint that generates the folder link
     fetch("https://mediai-server.onrender.com/getFolderLink", {
       method: "POST",
       headers: {
@@ -45,7 +46,6 @@ const Documents = () => {
         console.error(error);
       });
 
-    // Replace with your own API endpoint that provides the list of uploads
     fetch("https://mediai-server.onrender.com/getFiles", {
       method: "POST",
       headers: {
@@ -69,15 +69,14 @@ const Documents = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  });
 
   const handleShareFolder = () => {
-    setShowQRCode(!showQRCode); // toggle QR code display state
+    setShowQRCode(!showQRCode);
   };
 
   const deleteFile = (fileId) => {
-    // Replace with your own API endpoint that deletes the file
-    fetch("http://localhost:8080/deleteFile", {
+    fetch("https://mediai-server.onrender.com/deleteFile", {
       method: "DELETE",
       headers: {
         "Content-Type": "Application/json",
@@ -89,7 +88,6 @@ const Documents = () => {
     })
       .then((response) => {
         if (response.ok) {
-          // Remove the deleted file from the state
           setUploads((prevUploads) =>
             prevUploads.filter((upload) => upload._id !== fileId)
           );
@@ -98,6 +96,7 @@ const Documents = () => {
         }
       })
       .catch((error) => {
+        toast.error("Failed to delete file");
         console.error(error);
       });
   };
@@ -110,22 +109,21 @@ const Documents = () => {
         <button onClick={handleShareFolder}>Share Folder</button>
       </div>
 
-      {showQRCode &&
-        folderLink && ( // display QR code only if showQRCode state is true
-          <div className="folder-link-section">
-            <h2>Folder Link</h2>
-            <div className="qr-code-div">
-              <QRCode
-                className="qr-code"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                }}
-                value={folderLink}
-              />
-            </div>
+      {showQRCode && folderLink && (
+        <div className="folder-link-section">
+          <h2>Folder Link</h2>
+          <div className="qr-code-div">
+            <QRCode
+              className="qr-code"
+              style={{
+                width: "200px",
+                height: "200px",
+              }}
+              value={folderLink}
+            />
           </div>
-        )}
+        </div>
+      )}
       <ul className="uploads-list">
         {uploads.map((upload) => (
           <li key={upload._id} className="uploads-list-item">
@@ -139,6 +137,11 @@ const Documents = () => {
               <p>
                 <a href={upload.documentLink}>Document</a>
               </p>
+            </div>
+            <div className="doc-delete">
+              <button onClick={() => deleteFile(upload.documentLink)}>
+                <MdOutlineDelete />
+              </button>
             </div>
           </li>
         ))}

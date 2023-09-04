@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import Login from "./pages/Login/Login";
@@ -21,22 +21,22 @@ const App = () => {
       <div>
         <Toaster position="top-center"></Toaster>
       </div>
-      <BrowserRouter>
+      <HashRouter hashType="slash">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<LogoutPage />} />
-          <Route path="/register" element={<Register />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/logout" element={<LogoutPage />} />
+          <Route exact path="/register" element={<Register />} />
 
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/predict" element={<Predict />} />
+          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/predict" element={<Predict />} />
 
-          <Route path="/upload" element={<MedicalRecordsUpload />} />
-          <Route path="/documents" element={<Documents />} />
+          <Route exact path="/upload" element={<MedicalRecordsUpload />} />
+          <Route exact path="/documents" element={<Documents />} />
 
-          <Route path="/aboutus" element={<AboutUs />} />
+          <Route exact path="/aboutus" element={<AboutUs />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };

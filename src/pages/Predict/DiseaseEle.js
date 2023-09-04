@@ -1,4 +1,5 @@
 import React from "react";
+
 import Disease from "./Disease";
 
 const DiseaseEle = ({ output }) => {
